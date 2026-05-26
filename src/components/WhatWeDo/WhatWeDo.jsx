@@ -3,7 +3,7 @@ import Card from '../Card/Card';
 
 function WhatWeDo() {
   return (
-    <section className="what-we-do">
+    <section className="what-we-do" id="que-hacemos">
       <div className="what-we-do__decoration"></div>
       <div className="what-we-do__logo"></div>
 

@@ -1,4 +1,5 @@
-
+import Hero from './components/Hero/Hero';
+import WhatWeDo from './components/WhatWeDo/WhatWeDo';
 
 function App() {
   return (
@@ -6,8 +7,10 @@ function App() {
       <header>Header AXUDI</header>
 
       <main>
-        <section>Hero</section>
-        <section>Qué hacemos</section>
+        <Hero />
+        <WhatWeDo />
+
+        
         <section>Asóciate</section>
         <section>Quiénes somos</section>
         <section>Colaboradores</section>

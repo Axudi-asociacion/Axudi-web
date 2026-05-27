@@ -1,15 +1,31 @@
 import Card from '../Card/Card';
-//import './WhatWeDo.scss';
+import Section from '../Section/Section';
+
+// import './WhatWeDo.scss';
 
 function WhatWeDo() {
   return (
-    <section className="what-we-do" id="que-hacemos">
-      <div className="what-we-do__decoration"></div>
-      <div className="what-we-do__logo"></div>
+    <Section
+      className="what-we-do"
+      id="que-hacemos"
+    >
 
-      <h2 className="what-we-do__title">¿Qué hacemos?</h2>
+      <div
+        className="what-we-do__decoration"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        className="what-we-do__logo"
+        aria-hidden="true"
+      ></div>
+
+      <h2 className="what-we-do__title">
+        ¿Qué hacemos?
+      </h2>
 
       <div className="what-we-do__cards">
+
         <Card
           title="Acompañamiento"
           text="Creamos espacios donde hablar, escuchar y sentirse comprendido."
@@ -37,8 +53,10 @@ function WhatWeDo() {
           image=""
           alt=""
         />
+
       </div>
-    </section>
+
+    </Section>
   );
 }
 

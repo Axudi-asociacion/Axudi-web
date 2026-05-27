@@ -1,20 +1,28 @@
 import Card from '../Card/Card';
+import Section from '../Section/Section';
+
 // import './Collaborators.scss';
 
 function Collaborators() {
   return (
-    <section className="collaborators">
-      <h2 className="collaborators__title">Colaboradores</h2>
+    <Section className="collaborators">
+
+      <h2 className="collaborators__title">
+        Colaboradores
+      </h2>
 
       <div className="collaborators__intro">
+
         <div className="collaborators__decoration"></div>
 
         <p className="collaborators__text">
           Gracias a quienes hacen posible este proyecto.
         </p>
+
       </div>
 
       <div className="collaborators__carousel">
+
         <Card
           title="Colaborador 1"
           text="Descripción breve del colaborador."
@@ -35,8 +43,10 @@ function Collaborators() {
           image=""
           alt="Logo de Colaborador 3"
         />
+
       </div>
-    </section>
+
+    </Section>
   );
 }
 

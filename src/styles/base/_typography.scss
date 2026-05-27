@@ -1,0 +1,51 @@
+body {
+  font-family: var(--font-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-black);
+  background-color: var(--color-white);
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-primary);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3.75rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+p {
+  max-width: 65ch;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.accent-text {
+  font-family: var(--font-accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}

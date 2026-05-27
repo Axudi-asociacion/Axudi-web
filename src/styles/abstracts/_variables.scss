@@ -1,38 +1,69 @@
 :root {
-  /* Colores */
 
-  --color-primary: #0059d6;
-  --color-primary-dark: #0043a3;
+  /* COLORES */
 
-  --color-white: #ffffff;
-  --color-black: #1a1a1a;
+  --color-primary: #004aac;
+  --color-secondary: #e3e2de;
+
+  --color-white: #fefeff;
+  --color-black: #141414;
 
   --color-gray-light: #f5f7fa;
   --color-gray-medium: #d9dce1;
 
-  /* Tipografía */
+  /* Color texto secundario */
 
-  --font-main: "Inter", sans-serif;
+  --color-text-light: #5f6875;
 
-  /* Espaciados */
+  /* Focus accesibilidad */
 
-  --space-xs: 0.5rem;
+  --color-focus: #2a7fff;
+
+  /* Feedback */
+
+  --color-success: #29a557;
+  --color-error: #dc2626;
+
+
+  /* TIPOGRAFÍA */
+
+--font-main: "Anton", sans-serif;
+--font-secondary: "Inter", sans-serif;
+--font-accent: "Cormorant Garamond", serif;
+
+  /* Tamaños */
+
+  --text-xs: .875rem;
+  --text-sm: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.5rem;
+  --text-xl: 2rem;
+  --text-xxl: 3rem;
+
+
+  /* ESPACIADOS */
+
+  --space-xs: .5rem;
   --space-sm: 1rem;
   --space-md: 2rem;
   --space-lg: 4rem;
   --space-xl: 6rem;
 
-  /* Bordes */
 
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 30px;
+  /* BORDER RADIUS */
 
-  /* Sombras */
+  --radius-sm: .5rem;
+  --radius-md: 1rem;
+  --radius-lg: 2rem;
 
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
 
-  /* Contenedor */
+  /* SOMBRAS*/
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.08);
+  --shadow-md: 0 8px 20px rgba(0,0,0,.12);
+
+
+  /* CONTENEDOR */
 
   --max-width: 1200px;
 }

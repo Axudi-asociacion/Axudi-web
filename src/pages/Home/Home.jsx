@@ -9,19 +9,22 @@ import Contact from '../../components/Contact/Contact';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 
+import Reveal from '../../components/Reveal/Reveal';
+
+
 function Home() {
   return (
     <main>
       <Header />
       <Hero />
-      <WhatWeDo />
-      <Together />
-      <Join />
-      <About />
-      <Collaborators />
-      <LatestNews />
-      <Contact />
-      <Footer />
+      <Reveal><WhatWeDo /></Reveal>
+      <Reveal><Together /> </Reveal>
+      <Reveal><Join /></Reveal>
+      <Reveal><About /></Reveal>
+      <Reveal><Collaborators /></Reveal>
+      <Reveal><LatestNews /></Reveal>
+      <Reveal><Contact /></Reveal>
+      <Reveal><Footer /></Reveal>
     </main>
   );
 }

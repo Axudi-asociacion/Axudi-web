@@ -1,19 +1,25 @@
-//import './Together.scss';
+import Section from '../Section/Section';
+
+// import './Together.scss';
 
 function Together() {
   return (
-    <section className="together">
+    <Section className="together">
 
       <div className="together__overlay">
-        <div className="together__decoration"></div>
 
-        <h3 className="together__title">
+        <div
+          className="together__decoration"
+          aria-hidden="true"
+        ></div>
+
+        <blockquote className="together__title">
           Juntos cambiamos la forma de vivir con diabetes
-        </h3>
+        </blockquote>
 
       </div>
 
-    </section>
+    </Section>
   );
 }
 

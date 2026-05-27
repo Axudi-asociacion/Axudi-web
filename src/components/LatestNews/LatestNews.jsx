@@ -1,20 +1,28 @@
 import { Link } from 'react-router-dom';
 import NewsCard from '../NewsCard/NewsCard';
+import Section from '../Section/Section';
+
 // import './LatestNews.scss';
 
 function LatestNews() {
   return (
-    <section className="latest-news">
+    <Section className="latest-news">
+
       <h2 className="latest-news__title">
         Últimas noticias
       </h2>
 
       <div className="latest-news__intro">
-        <div className="latest-news__decoration"></div>
+
+        <div
+          className="latest-news__decoration"
+          aria-hidden="true"
+        ></div>
 
         <p className="latest-news__text">
           Mantente al día de nuestras actividades, encuentros y novedades.
         </p>
+
       </div>
 
       <div className="latest-news__cards">
@@ -53,7 +61,7 @@ function LatestNews() {
         Ver todas las noticias y eventos
       </Link>
 
-    </section>
+    </Section>
   );
 }
 

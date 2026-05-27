@@ -1,17 +1,26 @@
 import Card from '../Card/Card';
-//import './About.scss';
+import Section from '../Section/Section';
+
+// import './About.scss';
 
 function About() {
   return (
-    <section className="about" id="quienes-somos">
+    <Section
+      className="about"
+      id="quienes-somos"
+    >
 
       <div className="about__content">
-        <h2 className="about__title">¿Quiénes somos?</h2>
+
+        <h2 className="about__title">
+          ¿Quiénes somos?
+        </h2>
 
         <p className="about__text">
           AXUDI es una asociación juvenil sin ánimo de lucro creada
           por y para jóvenes con diabetes.
         </p>
+
       </div>
 
       <div className="about__team">
@@ -47,7 +56,7 @@ function About() {
 
       </div>
 
-    </section>
+    </Section>
   );
 }
 

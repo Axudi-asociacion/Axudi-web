@@ -1,0 +1,175 @@
+/* WHAT WE DO */
+
+.what-we-do {
+  position: relative;
+  overflow: hidden;
+
+  padding-block: var(--space-md);
+
+
+  background-color: var(--color-primary);
+  color: var(--color-white);
+
+  &__container {
+    position: relative;
+  }
+
+  &__decoration {
+    position: absolute;
+    top: 2rem;
+    left: var(--space-xs);
+    z-index: 1;
+
+    img {
+      width: 5.5rem;
+      display: block;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    left: 1rem;
+    bottom: 2rem;
+
+    width: 12rem;
+    height: 12rem;
+
+    opacity: 0.1;
+    pointer-events: none;
+    
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+
+    margin: 0 0 var(--space-sm);
+    padding-left: var(--space-md);
+    padding-top: var(--space-lg);
+
+    color: var(--color-white);
+
+    font-family: var(--font-main);
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    line-height: 1;
+    text-transform: lowercase;
+  }
+
+&__cards {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.card {
+  width: min(100%, 12rem);
+  max-width: 12rem;
+}
+
+.card:nth-child(1) {
+  align-self: flex-start;
+  margin-left: var(--space-md);
+}
+
+.card:nth-child(2) {
+  align-self: flex-end;
+  margin-right: var(--space-md);
+  margin-top: -1rem;
+}
+
+.card:nth-child(3) {
+  align-self: flex-start;
+  margin-left: var(--space-md);
+  margin-top: -0.5rem;
+}
+
+.card:nth-child(4) {
+  align-self: flex-end;
+  margin-right: var(--space-md);
+  margin-top: -1rem;
+  margin-bottom: var(--space-lg);
+}
+}
+
+/* TABLET / DESKTOP */
+
+@media (min-width: 768px) {
+  .what-we-do {
+    min-height: 45rem;
+    padding-block: var(--space-lg);
+
+    &__container {
+      min-height: 42rem;
+    }
+
+    &__title {
+      position: absolute;
+      left: 5rem;
+      bottom: 4rem;
+
+      margin: 0;
+      padding-left: 0;
+
+      font-size: clamp(5rem, 8vw, 7rem);
+      line-height: 0.95;
+    }
+
+    &__decoration {
+      top: auto;
+      left: 1rem;
+      bottom: 16rem;
+
+      img {
+        width: 8rem;
+      }
+    }
+
+    &__logo {
+      top: 3rem;
+      left: 82rem;
+
+      width: 13rem;
+      height: 13rem;
+
+      opacity: 0.9;
+    }
+
+    &__cards {
+      position: relative;
+      min-height: 20rem;
+      display: block;
+    }
+
+    .card {
+      position: absolute;
+      width: 14rem;
+      max-width: 14rem;
+      margin: 0;
+      transform: none;
+    }
+
+    .card:nth-child(1) {
+      top: 6rem;
+      left: 7rem;
+    }
+
+    .card:nth-child(2) {
+      top: 13rem;
+      left: 25rem;
+    }
+
+    .card:nth-child(3) {
+      top: 2rem;
+      right: 20rem;
+    }
+
+    .card:nth-child(4) {
+      top: 13rem;
+      right: 2rem;
+    }
+  }
+}

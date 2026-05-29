@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
-// import './Header.scss';
+
+import menuIcon from '../../assets/icons/i-hamburgerwhite.svg';
+import starIcon from '../../assets/icons/i-starblue.svg';
+import logo from '../../assets/logos/logoAxudi-navbarwhite.svg';
+
+import './Header.scss';
 
 function Header() {
   return (
@@ -7,68 +12,43 @@ function Header() {
 
       <div className="container header__container">
 
+        <button
+          className="header__menu-button"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="main-menu"
+        >
+          <img
+            src={menuIcon}
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
+
         <Link
           to="/"
           className="header__brand"
           aria-label="Ir a la página de inicio"
         >
-          <div className="header__logo"></div>
-
-          <span className="header__name">
-            AXUDI
-          </span>
+          <img
+            src={logo}
+            alt="AXUDI"
+            className="header__logo"
+          />
         </Link>
-
-        <div className="header__menu">
-
-          <button
-            className="header__menu-button"
-            type="button"
-            aria-label="Abrir menú"
-            aria-expanded="false"
-          >
-            Menú
-          </button>
-
-          <nav
-            className="header__nav"
-            aria-label="Navegación principal"
-          >
-            <ul className="header__list">
-
-              <li>
-                <a href="#que-hacemos">
-                  Qué hacemos
-                </a>
-              </li>
-
-              <li>
-                <a href="#quienes-somos">
-                  Quiénes somos
-                </a>
-              </li>
-
-              <li>
-                <Link to="/noticias-y-eventos">
-                  Noticias y eventos
-                </Link>
-              </li>
-
-              <li>
-                <a href="#contacto">
-                  Contacto
-                </a>
-              </li>
-
-            </ul>
-          </nav>
-
-        </div>
 
         <a
           href="#asociate"
-          className="header__cta"
+          className="button button--secondary header__cta"
         >
+          <img
+            src={starIcon}
+            alt=""
+            aria-hidden="true"
+            className="button__icon"
+          />
+
           Asóciate
         </a>
 

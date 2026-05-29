@@ -1,0 +1,123 @@
+/* HEADER / NAVBAR */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 0;
+
+  &__container {
+    position: relative;
+
+    min-height: 3rem;
+    padding: 0.15rem 0.85rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(0, 82, 180, 0.75);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 1.5rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 40, 90, 0.18);
+  }
+
+  &__menu-button {
+    width: 2.6rem;
+    height: 2.6rem;
+    padding: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+
+    img {
+      width: 3rem;
+      display: block;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-white);
+      outline-offset: 4px;
+      border-radius: 0.5rem;
+    }
+  }
+
+  &__brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: inline-flex;
+    align-items: center;
+
+    &:focus-visible {
+      outline: 3px solid var(--color-white);
+      outline-offset: 6px;
+      border-radius: 0.75rem;
+    }
+  }
+
+  &__logo {
+    width: 5.3rem;
+    display: block;
+  }
+
+  &__cta {
+    height: 2.3rem;
+    padding-inline: 0.75rem;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+
+    .button__icon {
+      width: 2.1rem;
+      flex-shrink: 0;
+    }
+  }
+}
+
+/* TABLET / DESKTOP */
+
+@media (min-width: 768px) {
+  .header {
+    padding: 0.5rem;
+
+    &__container {
+      min-height: 4.5rem;
+      padding-inline: 1.5rem;
+      border-radius: 1.85rem;
+    }
+
+    &__menu-button {
+      width: 3rem;
+      height: 3rem;
+
+      img {
+        width: 3.25rem;
+      }
+    }
+
+    &__logo {
+      width: 6rem;
+    }
+
+    &__cta {
+      height: 3rem;
+      padding-inline: 2.5rem;
+      font-size: 1.45rem;
+
+      .button__icon {
+        width: 2.3rem;
+      }
+    }
+  }
+}

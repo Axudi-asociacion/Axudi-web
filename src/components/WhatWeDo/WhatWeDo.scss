@@ -3,6 +3,7 @@
 .what-we-do {
   position: relative;
   overflow: hidden;
+  min-height: 100dvh;
 
   padding-block: var(--space-md);
 
@@ -12,6 +13,7 @@
 
   &__container {
     position: relative;
+    
   }
 
   &__decoration {
@@ -101,9 +103,10 @@
   .what-we-do {
     min-height: 45rem;
     padding-block: var(--space-lg);
+    min-height: 100dvh;
 
     &__container {
-      min-height: 42rem;
+      
     }
 
     &__title {

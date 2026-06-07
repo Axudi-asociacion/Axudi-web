@@ -1,6 +1,10 @@
 import Section from '../Section/Section';
 
-// import './Join.scss';
+import joinImage from '../../assets/images/img-camiseta800.webp';
+import starWhiteIcon from '../../assets/icons/i-starwhite.svg';
+import starBlueIcon from '../../assets/icons/i-starblue.svg';
+
+import './Join.scss';
 
 function Join() {
   return (
@@ -24,22 +28,35 @@ function Join() {
 
       <div className="join__right">
 
-        <div className="join__decoration"></div>
-
-        <div
-          className="join__image"
+        <img
+          className="join__decoration"
+          src={starBlueIcon}
+          alt=""
           aria-hidden="true"
-        ></div>
+        />
 
-        <a
-          href="#formulario"
-          className="join__button"
-          aria-label="Ir al formulario de asociación"
-        >
-          Ir al formulario
-        </a>
+        <img
+          className="join__image"
+          src={joinImage}
+          alt="Persona con camiseta de AXUDI"
+        />
 
+      <a
+        href="#formulario"
+        className="button button--primary join__button"
+        aria-label="Ir al formulario de asociación"
+      >
+        <img
+          src={starWhiteIcon}
+          alt=""
+          aria-hidden="true"
+          className="button__icon"
+        />
+
+        Ir al formulario
+      </a>
       </div>
+
 
     </Section>
   );

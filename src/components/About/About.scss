@@ -1,0 +1,243 @@
+/* ================================
+   ABOUT
+   Mobile first
+================================ */
+
+.about {
+  overflow: hidden;
+
+  min-height: 100dvh;
+  padding: 0;
+  margin: 0;
+
+  background-color: var(--color-primary);
+  color: var(--color-white);
+
+  .container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* INTRO */
+
+  &__intro {
+    position: relative;
+
+    width: 100%;
+    min-height: 100dvh;
+
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__image-wrapper {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__image--background {
+    z-index: 1;
+  }
+
+  &__image--cutout {
+    display: none;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+
+    padding-top: 2.5rem;
+    padding-left: var(--space-sm);
+  }
+
+  &__title {
+    margin: 0 0 var(--space-sm);
+
+    color: var(--color-primary);
+
+    font-family: var(--font-main);
+    font-size: clamp(4rem, 18vw, 6rem);
+    line-height: 0.95;
+  }
+
+  &__text {
+    max-width: 15rem;
+    margin: 0;
+
+    color: var(--color-black);
+
+    font-family: var(--font-accent);
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  /* EQUIPO */
+
+  &__team {
+    padding:
+      var(--space-lg)
+      var(--space-sm);
+
+    background-color: var(--color-primary);
+  }
+
+  &__team-title {
+    margin: 0 0 var(--space-lg);
+
+    color: var(--color-white);
+
+    font-family: var(--font-accent);
+    font-size: clamp(3rem, 12vw, 4.5rem);
+    line-height: 0.95;
+    text-align: center;
+    text-transform: lowercase;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .card {
+    width: min(100%, 12rem);
+    max-width: 12rem;
+  }
+}
+
+/* ================================
+   TABLET / DESKTOP
+================================ */
+
+@media (min-width: 768px) {
+  .about {
+    min-height: 100dvh;
+
+    .container {
+      min-height: 100dvh;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    /* IZQUIERDA */
+
+    &__intro {
+      position: relative;
+
+      min-height: 100dvh;
+    }
+
+    &__content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 34rem;
+
+      padding-top: 6rem;
+      padding-left: 5rem;
+    }
+
+    &__title {
+      font-size: clamp(6rem, 5vw, 8rem);
+    }
+
+    &__text {
+      max-width: 16rem;
+
+      padding-top: 1rem;
+
+      font-size: 1.5rem;
+      line-height: 1.5;
+    }
+
+    /* DERECHA */
+
+    &__team {
+      position: relative;
+
+      min-height: 100dvh;
+
+      padding: var(--space-xl);
+
+      background-color: var(--color-primary);
+    }
+
+    &__team-title {
+      position: absolute;
+      top: var(--space-lg);
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 100%;
+      margin: 0;
+
+      font-family: var(--font-accent);
+      font-size: clamp(4rem, 4vw, 6rem);
+      text-align: center;
+    }
+
+    &__cards {
+      position: relative;
+
+      width: 100%;
+      min-height: 34rem;
+      margin-top: 10rem;
+
+      display: block;
+    }
+
+    .card {
+      position: absolute;
+
+      width: 14rem;
+      max-width: 14rem;
+      height: 19rem;
+      min-height: 19rem;
+    }
+
+    .card:nth-child(1) {
+      top: -7rem;
+      left: 0;
+    }
+
+    .card:nth-child(2) {
+      top: 2rem;
+      right: 4rem;
+    }
+
+    .card:nth-child(3) {
+      top: 14rem;
+      left: 2rem;
+    }
+  }
+}

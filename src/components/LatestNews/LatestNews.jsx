@@ -1,10 +1,19 @@
 import { Link } from 'react-router-dom';
+
 import NewsCard from '../NewsCard/NewsCard';
 import Section from '../Section/Section';
 
-// import './LatestNews.scss';
+import newsItems from '../../data/newsItems';
+
+import starBlueIcon from '../../assets/icons/i-starblue.svg';
+
+import './LatestNews.scss';
 
 function LatestNews() {
+  const latestNews = [...newsItems]
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 3);
+
   return (
     <Section className="latest-news">
 
@@ -12,54 +21,34 @@ function LatestNews() {
         Últimas noticias
       </h2>
 
-      <div className="latest-news__intro">
-
-        <div
-          className="latest-news__decoration"
-          aria-hidden="true"
-        ></div>
-
-        <p className="latest-news__text">
-          Mantente al día de nuestras actividades, encuentros y novedades.
-        </p>
-
+      <div className="latest-news__list">
+        {latestNews.map((news) => (
+          <NewsCard
+            key={news.id}
+            title={news.title}
+            excerpt={news.excerpt}
+            image={news.image}
+            alt={news.alt}
+          />
+        ))}
       </div>
 
-      <div className="latest-news__cards">
+  <Link
+  to="/noticias-y-eventos"
+  className="button button--secondary latest-news__button"
+  aria-label="Ver todas las noticias y eventos"
+>
 
-        <NewsCard
-          title="Primer encuentro AXUDI"
-          text="Muy pronto compartiremos más información sobre nuestras próximas actividades."
-          image=""
-          alt="Imagen del primer encuentro AXUDI"
-          href="/noticias-y-eventos"
-        />
+  <img
+    src={starBlueIcon}
+    alt=""
+    aria-hidden="true"
+    className="button__icon"
+  />
 
-        <NewsCard
-          title="Talleres para jóvenes con diabetes"
-          text="Espacios para aprender, compartir experiencias y resolver dudas."
-          image=""
-          alt="Imagen de talleres para jóvenes con diabetes"
-          href="/noticias-y-eventos"
-        />
+  Ver todas las noticias
 
-        <NewsCard
-          title="Nueva etapa de la asociación"
-          text="AXUDI empieza a caminar como comunidad joven, cercana y participativa."
-          image=""
-          alt="Imagen sobre AXUDI"
-          href="/noticias-y-eventos"
-        />
-
-      </div>
-
-      <Link
-        to="/noticias-y-eventos"
-        className="latest-news__button"
-        aria-label="Ver todas las noticias y eventos"
-      >
-        Ver todas las noticias y eventos
-      </Link>
+</Link>
 
     </Section>
   );

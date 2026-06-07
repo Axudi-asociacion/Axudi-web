@@ -1,30 +1,65 @@
 import { Link } from 'react-router-dom';
-// import './NewsCard.scss';
 
-function NewsCard({ title, text, image, alt, href }) {
-  return (
-    <article className="news-card">
-      <Link to={href} className="news-card__link">
+import './NewsCard.scss';
 
-        <div className="news-card__image-wrapper">
-          <img
-            className="news-card__image"
-            src={image}
-            alt={alt}
-          />
-        </div>
+function NewsCard({
+  title,
+  excerpt,
+  body,
+  image,
+  alt,
+  href,
+}) {
+  const content = (
+    <>
+      <div className="news-card__top">
 
-        <div className="news-card__content">
+        <div className="news-card__info">
+
           <h3 className="news-card__title">
             {title}
           </h3>
 
-          <p className="news-card__text">
-            {text}
-          </p>
+          {excerpt && (
+            <p className="news-card__text">
+              {excerpt}
+            </p>
+          )}
+
         </div>
 
-      </Link>
+        {image && (
+          <div className="news-card__image-wrapper">
+            <img
+              className="news-card__image"
+              src={image}
+              alt={alt}
+            />
+          </div>
+        )}
+
+      </div>
+
+      {body && (
+        <p className="news-card__body">
+          {body}
+        </p>
+      )}
+    </>
+  );
+
+  return (
+    <article className="news-card">
+      {href ? (
+        <Link
+          to={href}
+          className="news-card__link"
+        >
+          {content}
+        </Link>
+      ) : (
+        content
+      )}
     </article>
   );
 }

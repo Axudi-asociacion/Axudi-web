@@ -1,7 +1,14 @@
 import Card from '../Card/Card';
 import Section from '../Section/Section';
 
-// import './About.scss';
+import groupBg from '../../assets/images/im-groupbig.webp';
+
+
+import pabloImage from '../../assets/images/im-Pablo800.webp';
+import yesImage from '../../assets/images/im-Yes800.webp';
+import albaImage from '../../assets/images/im-Alba800.webp';
+
+import './About.scss';
 
 function About() {
   return (
@@ -10,16 +17,29 @@ function About() {
       id="quienes-somos"
     >
 
-      <div className="about__content">
+      <div className="about__intro">
 
-        <h2 className="about__title">
-          ¿Quiénes somos?
-        </h2>
+        <div className="about__image-wrapper">
+          <img
+            className="about__image about__image--background"
+            src={groupBg}
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
 
-        <p className="about__text">
-          AXUDI es una asociación juvenil sin ánimo de lucro creada
-          por y para jóvenes con diabetes.
-        </p>
+        <div className="about__content">
+
+          <h2 className="about__title">
+            ¿Quiénes somos?
+          </h2>
+
+          <p className="about__text">
+            AXUDI es una asociación juvenil sin ánimo de lucro creada
+            por y para jóvenes con diabetes.
+          </p>
+
+        </div>
 
       </div>
 
@@ -34,21 +54,21 @@ function About() {
           <Card
             title="Yes"
             text="Secretaria"
-            image=""
+            image={yesImage}
             alt="Yes - Secretaria"
           />
 
           <Card
             title="Alba"
             text="Presidenta"
-            image=""
+            image={albaImage}
             alt="Alba - Presidenta"
           />
 
           <Card
             title="Pablo"
             text="Tesorero"
-            image=""
+            image={pabloImage}
             alt="Pablo - Tesorero"
           />
 

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+import './Footer.scss';
 
-// import './Footer.scss';
+import logoAxudi from '../../assets/logos/logoAxudi-mediumwhite.svg';
 
 function Footer() {
   return (
@@ -12,7 +13,14 @@ function Footer() {
 
           <div className="footer__brand">
 
-            <div className="footer__logo"></div>
+            <div className="footer__logo">
+                    <img
+                className="logo"
+                src={logoAxudi}
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
 
             <p className="footer__description">
               Asociación juvenil para jóvenes con diabetes.
@@ -64,24 +72,6 @@ function Footer() {
             </ul>
 
           </nav>
-
-          <div className="footer__contact">
-
-            <h3 className="footer__subtitle">
-              Contacto
-            </h3>
-
-            <ul className="footer__list">
-
-              <li>
-                <a href="mailto:contacto@axudi.org">
-                  contacto@axudi.org
-                </a>
-              </li>
-
-            </ul>
-
-          </div>
 
           <div className="footer__social">
 

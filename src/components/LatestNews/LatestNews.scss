@@ -1,0 +1,89 @@
+/* ================================
+   LATEST NEWS
+   Mobile first
+================================ */
+
+.latest-news {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 100dvh;
+  padding-block: var(--space-lg);
+
+  background-color: var(--color-primary);
+  background-image: url('../../assets/icons/i-lines.svg');
+  background-repeat: repeat;
+  background-size: 50rem auto;
+  background-position: center;
+
+  color: var(--color-white);
+
+  .container {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    margin: 0 0 var(--space-md);
+
+    color: var(--color-white);
+
+    font-family: var(--font-main);
+    font-size: clamp(3rem, 13vw, 4.5rem);
+    line-height: 0.95;
+    text-align: center;
+  }
+
+  &__list {
+    width: min(100% - 2rem, 42rem);
+    margin-inline: auto;
+    padding: var(--space-sm);
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--color-white);
+  
+  }
+
+  &__button {
+    width: fit-content;
+    margin-top: var(--space-md);
+
+    display: inline-flex;
+    align-self: center;
+  }
+}
+
+/* TABLET / DESKTOP */
+
+@media (min-width: 768px) {
+  .latest-news {
+    display: flex;
+    align-items: center;
+
+    background-position: center;
+    background-size: cover;
+
+    &__title {
+      width: 100%;
+      margin-bottom: var(--space-lg);
+
+      font-size: clamp(4.5rem, 7vw, 7rem);
+      text-align: right;
+    }
+
+    &__list {
+      width: min(100%, 70rem);
+      padding: var(--space-md);
+    }
+
+    &__button {
+      margin-top: var(--space-lg);
+    }
+  }
+}

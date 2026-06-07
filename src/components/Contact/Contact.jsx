@@ -1,6 +1,8 @@
 import Section from '../Section/Section';
+import './Contact.scss';
 
-// import './Contact.scss';
+import starWhite from '../../assets/icons/i-starwhite.svg';
+import mountain from '../../assets/icons/i-mountain.png';
 
 function Contact() {
   return (
@@ -86,14 +88,29 @@ function Contact() {
 
         </div>
 
-        <button
-          type="submit"
-          className="contact__button"
-        >
-          Enviar mensaje
-        </button>
+<button
+  type="submit"
+  className="button button--primary contact__button"
+>
+  <span className="button__icon">
+    <img
+      src={starWhite}
+      alt=""
+      aria-hidden="true"
+    />
+  </span>
+
+  Enviar mensaje
+</button>
 
       </form>
+
+      <img
+  className="contact__mountain"
+  src={mountain}
+  alt=""
+  aria-hidden="true"
+/>
 
     </Section>
   );

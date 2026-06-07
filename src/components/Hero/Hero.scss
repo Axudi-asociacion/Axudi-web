@@ -1,0 +1,228 @@
+/* ================================
+   HERO
+   Mobile first
+================================ */
+
+.hero {
+  position: relative;
+
+  min-height: 100dvh;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url('../../assets/images/im-background2blue.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &__decorations {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__star {
+    position: absolute;
+    top: 18%;
+    left: 14%;
+
+    width: 6rem;
+  }
+
+  &__arrow-link {
+    position: absolute;
+    right: 20%;
+    bottom: 15%;
+    z-index: 5;
+
+    display: inline-flex;
+
+    &:focus-visible {
+      outline: 3px solid var(--color-focus);
+      outline-offset: 4px;
+      border-radius: 999px;
+    }
+  }
+
+  &__arrow {
+    width: 6rem;
+    display: block;
+  }
+
+  &__visual {
+    position: relative;
+
+    width: min(62vw, 24rem);
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__image-frame {
+    position: relative;
+    z-index: 2;
+
+    width: 68%;
+    aspect-ratio: 1 / 1;
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0;
+    transform: scale(0.96);
+
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
+  }
+
+  &__image--active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &__image--logo {
+    object-fit: contain;
+  }
+
+  &__image--logo.hero__image--active {
+    transform: scale(1.75);
+  }
+
+  &__bracket {
+    position: absolute;
+
+    width: 6rem;
+    z-index: 3;
+
+    pointer-events: none;
+  }
+
+  &__bracket--top {
+    top: 0;
+    left: 0;
+  }
+
+  &__bracket--bottom {
+    right: 0;
+    bottom: 0;
+  }
+
+  &__marquee {
+    position: absolute;
+    left: 0;
+    bottom: 4%;
+
+    width: 100%;
+    overflow: hidden;
+
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  &__marquee-track {
+    width: max-content;
+    padding-block: 0.75rem;
+
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+
+    font-family: var(--font-main);
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    line-height: 1;
+
+    animation: hero-marquee 18s linear infinite;
+
+    img {
+      width: 2.5rem;
+      flex-shrink: 0;
+    }
+  }
+}
+
+@keyframes hero-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ================================
+   TABLET / DESKTOP
+================================ */
+
+@media (min-width: 768px) {
+  .hero {
+    &__visual {
+      width: min(38vw, 21rem);
+    }
+
+    &__image-frame {
+      width: 68%;
+    }
+
+    &__image--logo.hero__image--active {
+      transform: scale(1.85);
+    }
+
+    &__bracket {
+      width: 7.5rem;
+    }
+
+    &__star {
+      top: 18%;
+      left: 30%;
+      width: 9rem;
+    }
+
+    &__arrow-link {
+      right: 30%;
+      bottom: 18%;
+    }
+
+    &__arrow {
+      width: 9rem;
+    }
+
+    &__marquee-track {
+      padding-block: 1rem;
+      font-size: 2rem;
+
+      img {
+        width: 3rem;
+      }
+    }
+  }
+}
+
+/* ================================
+   REDUCIR MOVIMIENTO
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    &__marquee-track {
+      animation: none;
+    }
+
+    &__image {
+      transition: none;
+    }
+  }
+}

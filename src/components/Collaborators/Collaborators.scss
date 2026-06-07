@@ -1,0 +1,264 @@
+/* ================================
+   COLLABORATORS
+   Mobile first
+================================ */
+
+.collaborators {
+  min-height: 100dvh;
+  padding-block: var(--space-lg);
+
+  display: flex;
+  align-items: center;
+
+    background-image: url('../../assets/images/im-background2blue.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &__title {
+    margin: 0 0 var(--space-md);
+
+    color: var(--color-primary);
+
+    font-family: var(--font-main);
+    font-size: clamp(3rem, 13vw, 4.5rem);
+    line-height: 0.95;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  &__carousel-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  &__slides {
+    position: relative;
+
+    width: 16rem;
+    min-height: 24rem;
+    margin-inline: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: scale(0.92);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  &__slide--active {
+    opacity: 1;
+    z-index: 2;
+    pointer-events: auto;
+
+    transform: scale(1);
+  }
+
+  &__slide--previous,
+  &__slide--next {
+    display: none;
+  }
+
+  /* ASTERISCOS */
+
+  &__indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  &__indicator {
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    color: rgba(0, 74, 172, 0.3);
+
+    font-family: var(--font-main);
+    font-size: 1.8rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    &--active {
+      color: var(--color-primary);
+      transform: scale(1.25);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-focus);
+      outline-offset: 4px;
+      border-radius: var(--radius-sm);
+    }
+  }
+
+  /* TEXTO AGRADECIMIENTO */
+
+  &__intro {
+    position: relative;
+
+    width: min(100%, 18rem);
+    min-height: 12rem;
+    margin-inline: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__bracket {
+    position: absolute;
+
+    width: 5rem;
+    height: auto;
+
+    display: block;
+  }
+
+  &__bracket--top {
+    top: 0;
+    left: 0;
+  }
+
+  &__bracket--bottom {
+    right: 0;
+    bottom: 0;
+  }
+
+  &__text {
+    position: relative;
+    z-index: 2;
+
+    width: 11rem;
+    margin: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    color: var(--color-primary);
+
+    font-family: var(--font-accent);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.35;
+    text-align: center;
+  }
+}
+
+/* ================================
+   TABLET / DESKTOP
+================================ */
+
+@media (min-width: 768px) {
+  .collaborators {
+    padding-block: var(--space-xl);
+
+    &__title {
+      margin-bottom: var(--space-xl);
+
+      font-size: clamp(5rem, 8vw, 7rem);
+    }
+
+    &__content {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: var(--space-xl);
+
+      align-items: center;
+    }
+
+    &__intro {
+      grid-column: 1;
+      grid-row: 1;
+
+      width: 24rem;
+      min-height: 16rem;
+    }
+
+    &__bracket {
+      width: 8rem;
+    }
+
+    &__text {
+      width: 13rem;
+      font-size: 2.1rem;
+    }
+
+    &__carousel-block {
+      grid-column: 2;
+      grid-row: 1;
+
+      gap: var(--space-md);
+    }
+
+    &__slides {
+      width: 42rem;
+      min-height: 28rem;
+    }
+
+    &__slide {
+      display: flex;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    &__slide--active {
+      opacity: 1;
+      z-index: 3;
+
+      transform: translateX(0) scale(1.05);
+    }
+
+    &__slide--previous {
+      opacity: 0.45;
+      z-index: 1;
+
+      transform: translateX(-11rem) scale(0.9);
+    }
+
+    &__slide--next {
+      opacity: 0.45;
+      z-index: 1;
+
+      transform: translateX(11rem) scale(0.9);
+    }
+
+    &__indicator {
+      font-size: 2rem;
+    }
+  }
+}
+
+/* ================================
+   REDUCIR MOVIMIENTO
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .collaborators {
+    &__slide {
+      transition: none;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import menuIcon from '../../assets/icons/i-hamburgerwhite.svg';
 import starIcon from '../../assets/icons/i-starwhite.svg';
-import startIconblue from '../../assets/icons/i-starblue.svg';
+import starIconblue from '../../assets/icons/i-starblue.svg';
 import logo from '../../assets/logos/logoAxudi-navbarwhite.svg';
 
 import './Header.scss';
@@ -58,7 +58,7 @@ function Header() {
           onClick={closeMenu}
         >
           <img
-            src={startIconblue}
+            src={starIconblue}
             alt=""
             aria-hidden="true"
             className="button__icon"

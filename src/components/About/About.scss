@@ -70,12 +70,15 @@
 
     width: 100%;
 
-    padding-top: 2.5rem;
+    padding-top: 2.2rem;
     padding-left: var(--space-sm);
   }
 
   &__title {
-    margin: 0 0 var(--space-sm);
+    margin: 0 0 var(--space-xs);
+
+    padding-top: 2.5rem;
+
 
     color: var(--color-primary);
 
@@ -85,7 +88,7 @@
   }
 
   &__text {
-    max-width: 15rem;
+    max-width: 11rem;
     margin: 0;
 
     color: var(--color-black);
@@ -93,7 +96,7 @@
     font-family: var(--font-accent);
     font-size: 1.2rem;
     font-weight: 800;
-    line-height: 1.25;
+    line-height: 1.2;
     text-align: center;
   }
 
@@ -110,6 +113,9 @@
   &__team-title {
     margin: 0 0 var(--space-lg);
 
+    padding-top: 3rem;
+
+
     color: var(--color-white);
 
     font-family: var(--font-accent);
@@ -117,6 +123,8 @@
     line-height: 0.95;
     text-align: center;
     text-transform: lowercase;
+
+    
   }
 
   &__cards {
@@ -226,18 +234,18 @@
     }
 
     .card:nth-child(1) {
-      top: -7rem;
+      top: -5rem;
       left: 0;
     }
 
     .card:nth-child(2) {
-      top: 2rem;
+      top: 6rem;
       right: 4rem;
     }
 
     .card:nth-child(3) {
-      top: 14rem;
-      left: 2rem;
+      top: 15rem;
+      left: 0.5rem;
     }
   }
 }

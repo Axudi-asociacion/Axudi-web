@@ -40,7 +40,7 @@ function Hero() {
   }, [currentSlide]);
 
   return (
-    <section className="hero">
+    <section className="hero" id="inicio">
 
       <div className="hero__decorations" aria-hidden="true">
         <img

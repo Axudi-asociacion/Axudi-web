@@ -91,7 +91,7 @@ function Collaborators() {
   }
 
   return (
-    <Section className="collaborators">
+    <Section className="collaborators" id="colaboradores">
 
       <h2 className="collaborators__title">
         Colaboradores

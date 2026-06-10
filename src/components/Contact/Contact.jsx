@@ -1,7 +1,8 @@
 import Section from '../Section/Section';
 import './Contact.scss';
 
-import starWhite from '../../assets/icons/i-starwhite.svg';
+
+import message from '../../assets/icons/i-messagewhite.svg';
 import mountain from '../../assets/icons/i-mountain.png';
 
 function Contact() {
@@ -94,7 +95,7 @@ function Contact() {
 >
   <span className="button__icon">
     <img
-      src={starWhite}
+      src={message}
       alt=""
       aria-hidden="true"
     />

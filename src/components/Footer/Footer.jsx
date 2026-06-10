@@ -34,7 +34,7 @@ function Footer() {
           >
 
             <h3 className="footer__subtitle">
-              Navegación
+              Nuestra web :)
             </h3>
 
             <ul className="footer__list">
@@ -90,23 +90,6 @@ function Footer() {
                 </a>
               </li>
 
-              <li>
-                <a
-                  href="#"
-                  aria-label="TikTok de AXUDI"
-                >
-                  TikTok
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="#"
-                  aria-label="LinkedIn de AXUDI"
-                >
-                  LinkedIn
-                </a>
-              </li>
 
             </ul>
 

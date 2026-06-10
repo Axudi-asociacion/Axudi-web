@@ -13,6 +13,8 @@
 
   &__container {
     position: relative;
+
+    padding-top: 3rem;
     
   }
 
@@ -133,12 +135,12 @@
 
     &__logo {
       top: 3rem;
-      left: 82rem;
+      left: 75rem;
 
       width: 13rem;
       height: 13rem;
 
-      opacity: 0.9;
+      opacity: 0.5;
     }
 
     &__cards {

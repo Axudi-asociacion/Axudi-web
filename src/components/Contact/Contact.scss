@@ -101,7 +101,7 @@
     color: var(--color-black);
 
     font-family: var(--font-secondary);
-    font-size: var(--text-sm);
+    font-size: var(--text-md);
 
     transition:
       border-color 0.25s ease,
@@ -127,7 +127,7 @@
   &__mountain {
   position: absolute;
   left: 0;
-  bottom: -12rem;
+  bottom: -10rem;
 
   width: 100%;
   height: auto;

@@ -15,7 +15,7 @@ function LatestNews() {
     .slice(0, 3);
 
   return (
-    <Section className="latest-news">
+    <Section className="latest-news" id="noticias">
 
       <h2 className="latest-news__title">
         Últimas noticias

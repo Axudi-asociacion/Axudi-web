@@ -3,6 +3,8 @@ import Section from '../Section/Section';
 
 import groupBg from '../../assets/images/im-groupbig.webp';
 
+import Reveal from '../Reveal/Reveal';
+
 
 import pabloImage from '../../assets/images/im-Pablo800.webp';
 import yesImage from '../../assets/images/im-Yes800.webp';
@@ -31,7 +33,7 @@ function About() {
         <div className="about__content">
 
           <h2 className="about__title">
-            ¿Quiénes somos?
+            ¿Quiénes <br></br> somos?
           </h2>
 
           <p className="about__text">
@@ -51,26 +53,32 @@ function About() {
 
         <div className="about__cards">
 
-          <Card
-            title="Yes"
-            text="Secretaria"
-            image={yesImage}
-            alt="Yes - Secretaria"
-          />
+<Reveal delay={0}>
+  <Card
+    title="Yes"
+    text="Secretaria"
+    image={yesImage}
+    alt="Yes - Secretaria"
+  />
+</Reveal>
 
-          <Card
-            title="Alba"
-            text="Presidenta"
-            image={albaImage}
-            alt="Alba - Presidenta"
-          />
+<Reveal delay={150}>
+  <Card
+    title="Alba"
+    text="Presidenta"
+    image={albaImage}
+    alt="Alba - Presidenta"
+  />
+</Reveal>
 
-          <Card
-            title="Pablo"
-            text="Tesorero"
-            image={pabloImage}
-            alt="Pablo - Tesorero"
-          />
+<Reveal delay={300}>
+  <Card
+    title="Pablo"
+    text="Tesorero"
+    image={pabloImage}
+    alt="Pablo - Tesorero"
+  />
+</Reveal>
 
         </div>
 

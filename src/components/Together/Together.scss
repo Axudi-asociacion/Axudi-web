@@ -1,8 +1,22 @@
-/* TOGETHER */
+@use '../../styles/abstracts/mixins' as *;
+
+/* ================================
+   TOGETHER
+   Mobile first
+================================ */
 
 .together {
   width: 100%;
+  min-height: 100dvh;
   padding: 0;
+
+  overflow: hidden;
+
+  .container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
 
   &__background {
     min-height: 100dvh;
@@ -16,22 +30,23 @@
     background-position: center;
   }
 
-&__overlay {
-  position: relative;
+  &__overlay {
+    position: relative;
 
-  width: min(100%, 18rem);
-  min-height: 11rem;
+    width: min(100%, 18rem);
+    min-height: 11rem;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  transform: translateY(-8rem);
-}
+    transform: translateY(-9rem);
+  }
 
   &__decoration {
     position: absolute;
     inset: 0;
+
     pointer-events: none;
   }
 
@@ -40,17 +55,18 @@
 
     width: 5.5rem;
     height: auto;
+
     display: block;
   }
 
   &__bracket--top {
     top: 0;
-    left: 1rem;
+    left: 0.9rem;
   }
 
   &__bracket--bottom {
-    right: 1rem;
-    bottom: -1.5rem;
+    right: 0.5rem;
+    bottom: -3rem;
   }
 
   &__title {
@@ -64,19 +80,37 @@
     color: var(--color-primary);
 
     font-family: var(--font-accent);
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 800;
     line-height: 1.25;
     text-align: center;
   }
-}
 
-/* TABLET / DESKTOP */
+  /* breakpoint --- MOBILE */
 
-@media (min-width: 768px) {
-  .together {
+  @include mobile {
+    &__overlay {
+      width: 20rem;
+      min-height: 12rem;
+
+      transform: translateY(-9rem);
+    }
+
+    &__bracket {
+      width: 6rem;
+    }
+
+    &__title {
+      width: 11rem;
+
+      font-size: 1.35rem;
+    }
+  }
+
+  /* breakpoint --- TABLET */
+
+  @include tablet {
     &__background {
-      min-height: 100dvh;
       background-position: center;
     }
 
@@ -84,9 +118,8 @@
       width: 24rem;
       min-height: 16rem;
 
-      transform: translateY(-8rem);
+      transform: translateY(-9rem);
     }
-
 
     &__bracket {
       width: 8rem;
@@ -94,9 +127,89 @@
 
     &__title {
       width: 13rem;
-      font-size: 1.6rem;
       padding-top: 3rem;
+
+      font-size: 1.6rem;
+    }
+  }
+
+  /* breakpoint --- LAPTOP */
+
+  @include laptop {
+    &__overlay {
+      width: 26rem;
+      min-height: 17rem;
+
+      transform: translateY(-9rem);
+    }
+
+    &__title {
+      width: 14rem;
+
+      font-size: 1.75rem;
+    }
+  }
+
+  /* breakpoint --- DESKTOP */
+
+  @include desktop {
+    &__overlay {
+      width: 28rem;
+      min-height: 18rem;
+
+      transform: translateY(-6rem);
+    }
+
+    &__bracket {
+      width: 8.5rem;
+    }
+
+    &__title {
+      width: 15rem;
+
+      font-size: 1.9rem;
+    }
+  }
+
+  /* breakpoint --- DESKTOP BIG */
+
+  @include desktop-lg {
+    &__overlay {
+      width: 30rem;
+      min-height: 19rem;
+
+      transform: translateY(-8rem);
+    }
+
+    &__bracket {
+      width: 9rem;
+    }
+
+    &__title {
+      width: 16rem;
+
+      font-size: 2rem;
+    }
+  }
+
+  /* breakpoint --- DESKTOP XL */
+
+  @include desktop-xl {
+    &__overlay {
+      width: 38rem;
+      min-height: 24rem;
+
+      transform: translateY(-12rem);
+    }
+
+    &__bracket {
+      width: 12rem;
+    }
+
+    &__title {
+      width: 20rem;
+
+      font-size: 2.6rem;
     }
   }
 }
-

@@ -24,7 +24,7 @@ function Home() {
       <Reveal><Collaborators /></Reveal>
       <Reveal><LatestNews /></Reveal>
       <Reveal><Contact /></Reveal>
-      <Reveal><Footer /></Reveal>
+      <Footer />
     </main>
   );
 }

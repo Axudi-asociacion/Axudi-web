@@ -9,6 +9,8 @@ import CookieSettings from './pages/CookieSettings/CookieSettings';
 
 import ScrollToHash from './components/ScrollToHash/ScrollToHash';
 
+import NotFound from './pages/NotFound/NotFound';
+
 function App() {
   return (
     <>
@@ -21,6 +23,10 @@ function App() {
         <Route path="/privacidad" element={<PrivacyPolicy />} />
         <Route path="/cookies" element={<CookiesPolicy />} />
         <Route path="/configurar-cookies" element={<CookieSettings />} />
+        <Route
+  path="*"
+  element={<NotFound />}
+/>
       </Routes>
     </>
   );

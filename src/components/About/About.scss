@@ -1,7 +1,6 @@
-/* ================================
-   ABOUT
-   Mobile first
-================================ */
+@use '../../styles/abstracts/mixins' as *;
+
+/* ABOUT --- mobile first */
 
 .about {
   overflow: hidden;
@@ -23,9 +22,9 @@
     gap: 0;
   }
 
-  /* INTRO */
 
   &__intro {
+
     position: relative;
 
     width: 100%;
@@ -35,15 +34,6 @@
     align-items: flex-start;
   }
 
-  &__image-wrapper {
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
-  }
 
   &__image {
     position: absolute;
@@ -53,16 +43,14 @@
     height: 100%;
 
     object-fit: cover;
-    object-position: center;
+    object-position: center top;
   }
 
   &__image--background {
     z-index: 1;
   }
 
-  &__image--cutout {
-    display: none;
-  }
+
 
   &__content {
     position: relative;
@@ -71,24 +59,22 @@
     width: 100%;
 
     padding-top: 2.2rem;
-    padding-left: var(--space-sm);
+    padding-left: var(--space-md);
   }
 
   &__title {
-    margin: 0 0 var(--space-xs);
-
-    padding-top: 2.5rem;
-
+    margin: 0 0 var(--space-sm);
+    padding-top: 3rem;
 
     color: var(--color-primary);
 
     font-family: var(--font-main);
-    font-size: clamp(4rem, 18vw, 6rem);
+    font-size: clamp(3rem, 16vw, 5rem);
     line-height: 0.95;
   }
 
   &__text {
-    max-width: 11rem;
+    max-width: 9rem;
     margin: 0;
 
     color: var(--color-black);
@@ -100,152 +86,340 @@
     text-align: center;
   }
 
-  /* EQUIPO */
 
   &__team {
-    padding:
-      var(--space-lg)
-      var(--space-sm);
+    padding: var(--space-lg) var(--space-sm);
 
-    background-color: var(--color-primary);
   }
 
   &__team-title {
-    margin: 0 0 var(--space-lg);
-
-    padding-top: 3rem;
-
+    margin: 0 0 var(--space-md);
 
     color: var(--color-white);
+    font-weight: 800;
 
     font-family: var(--font-accent);
     font-size: clamp(3rem, 12vw, 4.5rem);
     line-height: 0.95;
     text-align: center;
     text-transform: lowercase;
-
-    
   }
 
-  &__cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-md);
-  }
-
-  .card {
-    width: min(100%, 12rem);
-    max-width: 12rem;
-  }
+&__cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
 }
 
-/* ================================
-   TABLET / DESKTOP
-================================ */
+.reveal {
+  width: min(100%, 12rem);
+  max-width: 12rem;
+}
 
-@media (min-width: 768px) {
-  .about {
-    min-height: 100dvh;
+.card {
+  width: 100%;
+  max-width: 100%;
+}
+  /* breakpoint --- MOBILE */
 
-    .container {
-      min-height: 100dvh;
-
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
-
-    /* IZQUIERDA */
-
-    &__intro {
-      position: relative;
-
-      min-height: 100dvh;
-    }
-
-    &__content {
-      position: relative;
-      z-index: 2;
-
-      max-width: 34rem;
-
-      padding-top: 6rem;
-      padding-left: 5rem;
-    }
-
+  @include mobile {
     &__title {
-      font-size: clamp(6rem, 5vw, 8rem);
+      font-size: clamp(4.5rem, 15vw, 6.5rem);
     }
 
     &__text {
-      max-width: 16rem;
-
-      padding-top: 1rem;
-
-      font-size: 1.5rem;
-      line-height: 1.5;
+      max-width: 13rem;
+      font-size: 1.3rem;
     }
+  }
 
-    /* DERECHA */
+ /* breakpoint --- TABLET */
 
-    &__team {
-      position: relative;
+@include tablet {
+  .container {
+    min-height: auto;
 
-      min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
 
-      padding: var(--space-xl);
+  &__intro {
+    min-height: 100dvh;
+  }
 
-      background-color: var(--color-primary);
-    }
+  &__content {
+    width: 100%;
 
-    &__team-title {
-      position: absolute;
-      top: var(--space-lg);
-      left: 50%;
+    padding-top: 2.2rem;
+    padding-left: var(--space-lg);
+  }
 
-      transform: translateX(-50%);
+  &__title {
+    margin: 0 0 var(--space-sm);
+    padding-top: 3rem;
+    font-size: clamp(4rem, 18vw, 6rem);
+  }
 
-      width: 100%;
-      margin: 0;
+  &__text {
+    max-width: 15rem;
 
-      font-family: var(--font-accent);
-      font-size: clamp(4rem, 4vw, 6rem);
-      text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  &__team {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  &__team-title {
+    position: static;
+    transform: none;
+
+    width: auto;
+  }
+
+  .about__cards {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+
+}
+  /* breakpoint --- LAPTOP */
+
+@include laptop {
+
+  .container {
+    min-height: 100dvh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+
+
+  &__intro {
+    min-height: 100dvh;
+  }
+
+  &__content {
+    max-width: 30rem;
+
+    padding-top: 8rem;
+    padding-left: 3rem;
+  }
+
+  &__title {
+    padding-top: 0;
+
+    font-size: clamp(5rem, 4vw, 7rem);
+  }
+
+  &__text {
+    max-width: 13rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    margin-top: -0.5rem;
+  }
+
+  &__team {
+    position: relative;
+
+    min-height: 100dvh;
+
+    padding: var(--space-xl);
+
+    background-color: var(--color-primary);
+  }
+
+  &__team-title {
+    position: absolute;
+    top: var(--space-lg);
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+    margin: 0;
+    padding-top: 3rem;
+
+    font-family: var(--font-accent);
+    font-size: clamp(4rem, 4vw, 6rem);
+    text-align: center;
+  }
+
+&__cards {
+  position: relative;
+
+  width: 20rem;
+  max-width: 20rem;
+  min-height: 30rem;
+
+  margin: 10rem auto 0;
+
+  display: block;
+}
+
+.reveal {
+  position: absolute;
+
+  width: 13rem;
+  max-width: 13rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 100%;
+  height: 17rem;
+  min-height: 17rem;
+}
+
+.reveal:nth-child(1) {
+  top: -2rem;
+  left: -4rem;
+}
+
+.reveal:nth-child(2) {
+  top: 6rem;
+  right: -3rem;
+}
+
+.reveal:nth-child(3) {
+  top: 16rem;
+  left: -4rem;
+}
+}
+
+  /* breakpoint --- DESKTOP */
+
+  @include desktop {
+    &__content {
+      padding-left: 6rem;
     }
 
     &__cards {
-      position: relative;
+          width: 34rem;
+    max-width: 34rem;
+    }
 
-      width: 100%;
-      min-height: 34rem;
-      margin-top: 10rem;
+.reveal:nth-child(1) {
+  top: -4rem;
+  left: 1rem;
+}
 
-      display: block;
+.reveal:nth-child(2) {
+  top: 6rem;
+  right: 3rem;
+}
+
+.reveal:nth-child(3) {
+  top: 16rem;
+  left: 2rem;
+}
+  }
+
+  /* breakpoint --- DESKTOP BIG */
+
+  @include desktop-lg {
+    &__content {
+      padding-left: 7rem;
+    }
+
+    &__cards {
+          width: 36rem;
+          max-width: 36rem;
+            min-height: 38rem;
     }
 
     .card {
-      position: absolute;
-
       width: 14rem;
       max-width: 14rem;
       height: 19rem;
       min-height: 19rem;
     }
 
-    .card:nth-child(1) {
-      top: -5rem;
-      left: 0;
+    .reveal:nth-child(1) {
+      top: -4rem;
+      left: 2rem;
     }
 
-    .card:nth-child(2) {
+    .reveal:nth-child(2) {
       top: 6rem;
       right: 4rem;
     }
 
-    .card:nth-child(3) {
-      top: 15rem;
-      left: 0.5rem;
+    .reveal:nth-child(3) {
+      top: 17rem;
+      left: 2rem;
     }
   }
+
+  /* breakpoint --- DESKTOP XL */
+
+  @include desktop-xl {
+    &__content {
+      padding-top: 8rem;
+      padding-left: 12rem;
+    }
+
+    &__title {
+      font-size: 10rem;
+    }
+
+    &__text {
+      min-width: 26rem;
+      font-size: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    &__team-title {
+      top: 6rem;
+
+      font-size: 7rem;
+    }
+
+    &__cards {
+      width: 4rem;
+      height: 19rem;
+      min-height: 46rem;
+      margin-top: 19rem;
+    }
+
+    .card {
+      width: 20rem;
+      max-width: 20rem;
+      height: 26rem;
+      min-height: 26rem;
+    }
+
+    .reveal:nth-child(1) {
+      top: -5rem;
+      left: -19rem;
+    }
+
+    .reveal:nth-child(2) {
+      top: 9rem;
+      right:-20rem;
+    }
+
+    .reveal:nth-child(3) {
+      top: 24rem;
+      left: -19rem;
+    }
+  }
+
+    /* accesibility --- REDUCE MOTION */
+
+@include reduce-motion {
+  .reveal {
+    transition: none;
+    transform: none;
+  }
+}
 }

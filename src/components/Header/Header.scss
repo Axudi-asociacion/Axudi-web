@@ -1,13 +1,17 @@
-/* ================================
-   HEADER / NAVBAR
-   Mobile first
-================================ */
+@use '../../styles/abstracts/mixins' as *;
+
+/* NAVBAR --- Mobile first */
 
 .header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: fixed;
+  top: 0.1rem;
+  left: 0;
+  z-index: 1000;
+
+  width: 100%;
   padding-block: calc(var(--space-md) / 2);
+
+  pointer-events: none;
 
   &__container {
     position: relative;
@@ -26,10 +30,21 @@
     border: 1px solid rgba(254, 254, 255, 0.18);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
+
+    pointer-events: auto;
+
+    &::after {
+      content: '';
+
+      width: 3rem;
+      height: 3rem;
+
+      flex-shrink: 0;
+    }
   }
 
   &__menu-button {
-    width: auto;
+    width: 3rem;
     height: 3rem;
     padding: 0;
 
@@ -74,12 +89,11 @@
     display: block;
   }
 
-  /* CTA superior oculto en móvil */
   .header__cta {
     display: none;
   }
 
-  /* MENÚ DESPLEGABLE */
+  /* navbar --- MENU */
 
   &__nav {
     position: absolute;
@@ -94,7 +108,12 @@
     -webkit-backdrop-filter: blur(18px) saturate(140%);
 
     border: 1px solid rgba(254, 254, 255, 0.55);
-    box-shadow: var(--shadow-md);
+      box-shadow:
+    0 1rem 2.5rem rgba(0, 40, 90, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.25);
+
+    
 
     opacity: 0;
     visibility: hidden;
@@ -160,6 +179,7 @@
 
     font-family: var(--font-accent);
     font-size: 1.8rem;
+    font-weight: 800;
     line-height: 1;
     text-align: center;
     text-decoration: none;
@@ -176,8 +196,6 @@
       border-radius: var(--radius-sm);
     }
   }
-
-  /* BOTONES DENTRO DEL MENÚ MÓVIL */
 
   &__nav-associate,
   &__nav-contact {
@@ -210,29 +228,90 @@
     }
   }
 
-  &__nav-list .header__nav-associate-button {
-    color: var(--color-primary);
-  }
-
-  &__nav-list .header__nav-contact-button {
-    color: var(--color-white);
-  }
-
-  
+ &__nav-list .header__nav-associate-button {
+  color: var(--color-primary);
 }
 
-/* ================================
-   TABLET / DESKTOP
-================================ */
+&__nav-list .header__nav-associate-button:hover,
+&__nav-list .header__nav-associate-button:focus-visible {
+  color: var(--color-primary);
+}
 
-@media (min-width: 768px) {
-  .header {
+&__nav-list .header__nav-contact-button {
+  color: var(--color-white);
+}
+
+&__nav-list .header__nav-contact-button:hover,
+&__nav-list .header__nav-contact-button:focus-visible {
+  color: var(--color-white);
+}
+
+
+/* REDES SOCIALES */
+
+&__socials {
+  margin-top: var(--space-md);
+}
+
+&__socials-divider {
+  width: 100%;
+  height: 1px;
+
+  margin-bottom: var(--space-sm);
+
+  background-color: rgba(0, 74, 172, 0.25);
+}
+
+&__socials-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 0.85;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-primary);
+      outline-offset: 4px;
+      border-radius: 999px;
+    }
+  }
+
+  img {
+    width: 5rem;
+    height: 5rem;
+    display: block;
+  }
+}
+
+&__socials-divider {
+  width: min(100%, 14rem);
+  margin-inline: auto;
+}
+  /* breakpoint --- TABLET */
+
+  @include tablet {
     padding-block: var(--space-xs);
 
     &__container {
       min-height: 3.6rem;
       padding-inline: var(--space-sm);
-      border-radius: var(--radius-lg);
+
+      &::after {
+        display: none;
+      }
     }
 
     &__menu-button {
@@ -248,7 +327,6 @@
       width: 5.75rem;
     }
 
-    /* CTA superior visible en tablet/desktop */
     .header__cta {
       height: 2.75rem;
       min-height: 2.75rem;
@@ -271,14 +349,11 @@
     }
 
     &__nav {
-      width: 100%;
-      left: 0;
-      right: auto;
+  width: 100%;
+  left: 0;
+  right: 0;
 
-      padding:
-        var(--space-md)
-        var(--space-md)
-        var(--space-lg);
+  padding: var(--space-md) var(--space-md) var(--space-lg);
     }
 
     &__nav-list {
@@ -289,21 +364,39 @@
       font-size: 2rem;
     }
 
-    /* En desktop ocultamos el Asóciate del menú */
     &__nav-associate {
       display: none;
     }
+  }
 
-    &__nav-contact-button {
-      width: min(100%, 14rem);
-      min-height: 3rem;
+  /* breakpoint --- LAPTOP */
 
-      font-size: 1.55rem;
+  @include laptop {
+    &__container {
+      min-height: 4rem;
+      padding-inline: 1.25rem;
+    }
 
-      .button__icon {
-        width: 2rem;
-        height: 2rem;
-      }
+    &__logo {
+      width: 6rem;
+    }
+
+
+  }
+
+  /* breakpoint --- DESKTOP */
+
+  @include desktop {
+    &__container {
+      max-width: var(--max-width);
+    }
+  }
+
+  /* accesibility --- REDUCE MOTION */
+
+  @include reduce-motion {
+    &__nav {
+      transition: none;
     }
   }
 }

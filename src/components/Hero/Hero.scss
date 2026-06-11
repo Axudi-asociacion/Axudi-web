@@ -1,7 +1,6 @@
-/* ================================
-   HERO
-   Mobile first
-================================ */
+@use '../../styles/abstracts/mixins' as *;
+
+/* HERO --- Mobile first */
 
 .hero {
   position: relative;
@@ -26,7 +25,7 @@
 
   &__star {
     position: absolute;
-    top: 18%;
+    top: 14%;
     left: 14%;
 
     width: 6rem;
@@ -61,6 +60,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    transform: translateY(-2rem);
+  }
+
+  &__visual--logo {
+    .hero__bracket {
+      opacity: 0;
+      transform: scale(0.9);
+    }
   }
 
   &__image-frame {
@@ -103,11 +111,18 @@
 
   &__bracket {
     position: absolute;
-
-    width: 6rem;
     z-index: 3;
 
+    width: 6.5rem;
+
+    opacity: 1;
+    transform: scale(1);
+
     pointer-events: none;
+
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
   }
 
   &__bracket--top {
@@ -151,7 +166,205 @@
       flex-shrink: 0;
     }
   }
+
+  /* breakpoint --- MOBILE */
+
+  @include mobile {
+    &__visual {
+      width: min(45vw, 16rem);
+      transform: translateY(-2rem);
+    }
+
+    &__bracket {
+      width: 6.8rem;
+    }
+
+    &__star {
+      left: 25%;
+      width: 5.5rem;
+    }
+
+    &__arrow {
+      width: 5.5rem;
+    }
+
+    &__arrow-link {
+      right: 30%;
+    }
+  }
+
+  /* breakpoint --- TABLET */
+
+  @include tablet {
+    &__visual {
+      width: min(35vw, 20rem);
+      transform: translateY(-2rem);
+    }
+
+    &__bracket {
+      width: 7.5rem;
+    }
+
+    &__image--logo.hero__image--active {
+      transform: scale(1.6);
+    }
+
+    &__star {
+      top: 18%;
+      left: 20%;
+
+      width: 7rem;
+    }
+
+    &__arrow-link {
+      right: 20%;
+      bottom: 18%;
+    }
+
+    &__arrow {
+      width: 7rem;
+    }
+
+    &__marquee-track {
+      padding-block: 1rem;
+
+      font-size: 1.5rem;
+
+      img {
+        width: 3rem;
+      }
+    }
+  }
+
+  /* breakpoint --- LAPTOP */
+
+  @include laptop {
+    &__visual {
+      width: min(28vw, 17rem);
+      transform: translateY(-2rem);
+    }
+
+    &__image--logo.hero__image--active {
+      transform: scale(1.8);
+    }
+
+    &__bracket {
+      width: 7.5rem;
+    }
+
+    &__star {
+      left: 22%;
+
+      width: 7.5rem;
+    }
+
+    &__arrow-link {
+      right: 22%;
+    }
+
+    &__arrow {
+      width: 7.5rem;
+    }
+  }
+
+  /* breakpoint --- DESKTOP */
+
+  @include desktop {
+    &__visual {
+      transform: translateY(-4rem);
+    }
+
+    &__star {
+      left: 28%;
+
+      width: 8rem;
+    }
+
+    &__arrow-link {
+      right: 28%;
+    }
+
+    &__arrow {
+      width: 8rem;
+    }
+  }
+
+  /* breakpoint --- DESKTOP BIG */
+
+  @include desktop-lg {
+    &__visual {
+      transform: translateY(-3rem);
+    }
+
+    &__star {
+      left: 30%;
+
+      width: 9rem;
+    }
+
+    &__arrow-link {
+      right: 30%;
+    }
+
+    &__arrow {
+      width: 9rem;
+    }
+  }
+
+  /* breakpoint --- DESKTOP XL */
+
+  @include desktop-xl {
+    &__visual {
+      width: min(38vw, 26rem);
+      transform: translateY(-2rem);
+    }
+
+    &__bracket {
+      width: 11rem;
+    }
+
+    &__star {
+      left: 35%;
+
+      width: 12rem;
+    }
+
+    &__arrow-link {
+      right: 35%;
+    }
+
+    &__arrow {
+      width: 12rem;
+    }
+
+    &__image--logo.hero__image--active {
+      transform: scale(1.75);
+    }
+
+    &__marquee-track {
+      font-size: 3rem;
+
+      img {
+        width: 4rem;
+      }
+    }
+  }
+
+  /* accesibility --- REDUCE MOTION */
+
+  @include reduce-motion {
+    &__marquee-track {
+      animation: none;
+    }
+
+    &__image,
+    &__bracket {
+      transition: none;
+    }
+  }
 }
+
+/* animation --- HERO MARQUEE */
 
 @keyframes hero-marquee {
   from {
@@ -160,69 +373,5 @@
 
   to {
     transform: translateX(-50%);
-  }
-}
-
-/* ================================
-   TABLET / DESKTOP
-================================ */
-
-@media (min-width: 768px) {
-  .hero {
-    &__visual {
-      width: min(38vw, 21rem);
-    }
-
-    &__image-frame {
-      width: 68%;
-    }
-
-    &__image--logo.hero__image--active {
-      transform: scale(1.85);
-    }
-
-    &__bracket {
-      width: 7.5rem;
-    }
-
-    &__star {
-      top: 18%;
-      left: 30%;
-      width: 9rem;
-    }
-
-    &__arrow-link {
-      right: 30%;
-      bottom: 18%;
-    }
-
-    &__arrow {
-      width: 9rem;
-    }
-
-    &__marquee-track {
-      padding-block: 1rem;
-      font-size: 2rem;
-
-      img {
-        width: 3rem;
-      }
-    }
-  }
-}
-
-/* ================================
-   REDUCIR MOVIMIENTO
-================================ */
-
-@media (prefers-reduced-motion: reduce) {
-  .hero {
-    &__marquee-track {
-      animation: none;
-    }
-
-    &__image {
-      transition: none;
-    }
   }
 }

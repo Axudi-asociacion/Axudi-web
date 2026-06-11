@@ -6,6 +6,9 @@ import menuIcon from '../../assets/icons/i-hamburgerwhite.svg';
 import starIconBlue from '../../assets/icons/i-starblue.svg';
 import logo from '../../assets/logos/logoAxudi-navbarwhite.svg';
 import message from '../../assets/icons/i-messagewhite.svg';
+import instragram from '../../assets/icons/i-instagram.svg';
+import tiktok from '../../assets/icons/i-tiktok.svg';
+
 
 import './Header.scss';
 
@@ -150,6 +153,41 @@ function Header() {
               </Link>
             </li>
           </ul>
+          <div className="header__socials">
+
+  <div className="header__socials-divider" />
+
+  <div className="header__socials-links">
+
+    <a
+      href="https://www.instagram.com/axudi_asturias/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram de AXUDI"
+    >
+      <img
+        src={instragram}
+        alt=""
+        aria-hidden="true"
+      />
+    </a>
+
+    <a
+      href="https://www.tiktok.com/@axudi_asturias"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="TikTok de AXUDI"
+    >
+      <img
+        src={tiktok}
+        alt=""
+        aria-hidden="true"
+      />
+    </a>
+
+  </div>
+
+</div>
         </nav>
       </div>
     </header>

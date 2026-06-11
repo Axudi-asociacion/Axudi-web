@@ -1,3 +1,5 @@
+@use '../../styles/abstracts/mixins' as *;
+
 /* ================================
    COLLABORATORS
    Mobile first
@@ -10,10 +12,12 @@
   display: flex;
   align-items: center;
 
-    background-image: url('../../assets/images/im-background2blue.webp');
+  background-image: url('../../assets/images/im-background2blue.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+  overflow: hidden;
 
   &__title {
     margin: 0 0 var(--space-md);
@@ -62,6 +66,7 @@
     pointer-events: none;
 
     transform: scale(0.92);
+
     transition:
       opacity 0.25s ease,
       transform 0.25s ease;
@@ -154,8 +159,7 @@
 
     width: 11rem;
     margin: 2rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-block: 1.5rem;
 
     color: var(--color-primary);
 
@@ -165,33 +169,50 @@
     line-height: 1.35;
     text-align: center;
   }
-}
 
-/* ================================
-   TABLET / DESKTOP
-================================ */
+  /* breakpoint --- MOBILE */
 
-@media (min-width: 768px) {
-  .collaborators {
+  @include mobile {
+    &__slides {
+      width: 18rem;
+      min-height: 25rem;
+    }
+
+    &__intro {
+      width: 20rem;
+      min-height: 13rem;
+    }
+
+    &__bracket {
+      width: 5.8rem;
+    }
+
+    &__text {
+      width: 12rem;
+
+      font-size: 1.75rem;
+    }
+  }
+
+  /* breakpoint --- TABLET */
+
+  @include tablet {
     padding-block: var(--space-xl);
 
     &__title {
-      margin-bottom: var(--space-xl);
+      margin-bottom: var(--space-lg);
 
       font-size: clamp(5rem, 8vw, 7rem);
     }
 
     &__content {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
+      display: flex;
+      flex-direction: column;
       gap: var(--space-xl);
-
-      align-items: center;
     }
 
     &__intro {
-      grid-column: 1;
-      grid-row: 1;
+      order: 2;
 
       width: 24rem;
       min-height: 16rem;
@@ -203,23 +224,24 @@
 
     &__text {
       width: 13rem;
+
       font-size: 2.1rem;
     }
 
     &__carousel-block {
-      grid-column: 2;
-      grid-row: 1;
+      order: 1;
 
       gap: var(--space-md);
     }
 
     &__slides {
-      width: 42rem;
+      width: 36rem;
       min-height: 28rem;
     }
 
     &__slide {
       display: flex;
+
       opacity: 0.45;
       pointer-events: none;
     }
@@ -228,35 +250,174 @@
       opacity: 1;
       z-index: 3;
 
-      transform: translateX(0) scale(1.05);
+      transform: translateX(0) scale(1.04);
     }
 
     &__slide--previous {
       opacity: 0.45;
       z-index: 1;
 
-      transform: translateX(-11rem) scale(0.9);
+      transform: translateX(-9rem) scale(0.88);
     }
 
     &__slide--next {
       opacity: 0.45;
       z-index: 1;
 
-      transform: translateX(11rem) scale(0.9);
+      transform: translateX(9rem) scale(0.88);
     }
 
     &__indicator {
       font-size: 2rem;
     }
   }
-}
 
-/* ================================
-   REDUCIR MOVIMIENTO
-================================ */
+  /* breakpoint --- LAPTOP */
 
-@media (prefers-reduced-motion: reduce) {
-  .collaborators {
+  @include laptop {
+    &__title {
+      margin-bottom: var(--space-xl);
+    }
+
+    &__content {
+      width: min(100%, 68rem);
+      margin-inline: auto;
+
+      display: grid;
+      grid-template-columns: 0.9fr 1.4fr;
+      gap: var(--space-xl);
+
+      align-items: center;
+    }
+
+    &__intro {
+      grid-column: 1;
+      grid-row: 1;
+
+      order: initial;
+    }
+
+    &__carousel-block {
+      grid-column: 2;
+      grid-row: 1;
+
+      order: initial;
+    }
+
+    &__slides {
+      width: 40rem;
+    }
+
+    &__slide--previous {
+      transform: translateX(-10rem) scale(0.88);
+    }
+
+    &__slide--next {
+      transform: translateX(10rem) scale(0.88);
+    }
+  }
+
+  /* breakpoint --- DESKTOP */
+
+  @include desktop {
+    &__content {
+      width: min(100%, 80rem);
+      grid-template-columns: 1fr 1.5fr;
+    }
+
+    &__slides {
+      width: 42rem;
+      min-height: 29rem;
+    }
+
+    &__slide--active {
+      transform: translateX(0) scale(1.05);
+    }
+
+    &__slide--previous {
+      transform: translateX(-11rem) scale(0.9);
+    }
+
+    &__slide--next {
+      transform: translateX(11rem) scale(0.9);
+    }
+  }
+
+  /* breakpoint --- DESKTOP BIG */
+
+  @include desktop-lg {
+    &__content {
+      width: min(100%, 88rem);
+    }
+
+    &__slides {
+      width: 46rem;
+      min-height: 31rem;
+    }
+
+    &__intro {
+      width: 26rem;
+      min-height: 17rem;
+    }
+
+    &__bracket {
+      width: 8.5rem;
+    }
+
+    &__text {
+      width: 14rem;
+
+      font-size: 2.3rem;
+    }
+  }
+
+  /* breakpoint --- DESKTOP XL */
+
+  @include desktop-xl {
+    &__title {
+      font-size: 9rem;
+    }
+
+    &__content {
+      width: min(100%, 115rem);
+    }
+
+    &__slides {
+      width: 62rem;
+      min-height: 40rem;
+    }
+
+    &__slide--previous {
+      transform: translateX(-15rem) scale(0.9);
+    }
+
+    &__slide--next {
+      transform: translateX(15rem) scale(0.9);
+    }
+
+    &__intro {
+      width: 34rem;
+      min-height: 22rem;
+    }
+
+    &__bracket {
+      width: 11rem;
+    }
+
+    &__text {
+      width: 18rem;
+
+      font-size: 3rem;
+    }
+
+    &__indicator {
+      font-size: 3rem;
+    }
+  }
+
+  /* accesibility --- REDUCE MOTION */
+
+  @include reduce-motion {
     &__slide {
       transition: none;
     }

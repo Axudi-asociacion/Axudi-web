@@ -1,3 +1,5 @@
+@use '../../styles/abstracts/mixins' as *;
+
 /* ================================
    CONTACT
    Mobile first
@@ -5,6 +7,7 @@
 
 .contact {
   position: relative;
+  overflow: hidden;
 
   min-height: 100dvh;
 
@@ -15,8 +18,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
-  overflow: hidden;
 
   &::before {
     content: '';
@@ -32,12 +33,12 @@
     z-index: 2;
 
     width: 100%;
-
     margin-bottom: 6rem;
   }
 
   &__content {
     margin-bottom: var(--space-md);
+
     text-align: center;
   }
 
@@ -97,6 +98,7 @@
     padding: 0.75rem;
 
     border: 1px solid var(--color-gray-medium);
+
     background-color: var(--color-white);
     color: var(--color-black);
 
@@ -109,41 +111,54 @@
 
     &:focus {
       outline: none;
+
       border-color: var(--color-primary);
+
       box-shadow: 0 0 0 3px rgba(0, 74, 172, 0.15);
     }
   }
 
   &__textarea {
     min-height: 10rem;
+
     resize: vertical;
   }
 
   &__button {
     margin-top: var(--space-sm);
+
     align-self: center;
   }
 
   &__mountain {
-  position: absolute;
-  left: 0;
-  bottom: -10rem;
+    position: absolute;
+    left: 0;
+    bottom: -10rem;
+    z-index: 3;
 
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 
-  display: block;
-  z-index: 3;
-  pointer-events: none;
-}
-}
+    display: block;
 
-/* ================================
-   TABLET / DESKTOP
-================================ */
+    pointer-events: none;
+  }
 
-@media (min-width: 768px) {
-  .contact {
+  /* breakpoint --- MOBILE */
+
+  @include mobile {
+    &__form {
+      width: min(100%, 24rem);
+    }
+
+    &__mountain {
+      bottom: -11rem;
+    }
+  }
+
+  /* breakpoint --- TABLET */
+
+  @include tablet {
     &__title {
       font-size: clamp(5rem, 8vw, 7rem);
     }
@@ -160,17 +175,79 @@
       padding: var(--space-lg);
     }
 
-      &__mountain {
-  position: absolute;
-  left: 0;
-  bottom: -15rem;
+    &__mountain {
+      bottom: -15rem;
+    }
+  }
 
-  width: 100%;
-  height: auto;
+  /* breakpoint --- LAPTOP */
 
-  display: block;
-  z-index: 3;
-  pointer-events: none;
-}
+  @include laptop {
+    .container {
+      margin-bottom: 7rem;
+    }
+
+    &__form {
+      width: min(100%, 40rem);
+    }
+
+    &__mountain {
+      bottom: -17rem;
+    }
+  }
+
+  /* breakpoint --- DESKTOP */
+
+  @include desktop {
+    &__title {
+      font-size: clamp(5.5rem, 7vw, 8rem);
+    }
+
+    &__form {
+      width: min(100%, 42rem);
+    }
+
+    &__mountain {
+      bottom: -18rem;
+    }
+  }
+
+  /* breakpoint --- DESKTOP BIG */
+
+  @include desktop-lg {
+    &__mountain {
+      bottom: -20rem;
+    }
+  }
+
+  /* breakpoint --- DESKTOP XL */
+
+  @include desktop-xl {
+    &__title {
+      font-size: 10rem;
+    }
+
+    &__text {
+      max-width: 50rem;
+
+      font-size: 3rem;
+    }
+
+    &__form {
+      width: min(100%, 55rem);
+    }
+
+    &__mountain {
+      bottom: -28rem;
+    }
+  }
+
+  /* accesibility --- REDUCE MOTION */
+
+  @include reduce-motion {
+    &__input,
+    &__textarea {
+      transition: none;
+    }
   }
 }

@@ -16,8 +16,8 @@ import arrowBlue from '../../assets/icons/i-arrowblue.svg';
 import './Hero.scss';
 
 const heroSlides = [
-  { id: 'points', image: pointsImage, isLogo: false },
-  { id: 'points', image: pointsImage, isLogo: false },
+  { id: 'points-1', image: pointsImage, isLogo: false },
+  { id: 'points-2', image: pointsImage, isLogo: false },
   { id: 'mountain', image: mountainImage, isLogo: false },
   { id: 'hands', image: handsImage, isLogo: false },
   { id: 'girls', image: girlsImage, isLogo: false },
@@ -26,6 +26,8 @@ const heroSlides = [
 
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const isLogoSlide = heroSlides[currentSlide].isLogo;
 
   useEffect(() => {
     if (currentSlide === heroSlides.length - 1) {
@@ -40,9 +42,15 @@ function Hero() {
   }, [currentSlide]);
 
   return (
-    <section className="hero" id="inicio">
+    <section
+      className="hero"
+      id="inicio"
+    >
 
-      <div className="hero__decorations" aria-hidden="true">
+      <div
+        className="hero__decorations"
+        aria-hidden="true"
+      >
         <img
           className="hero__star"
           src={starBlue}
@@ -63,7 +71,10 @@ function Hero() {
         />
       </a>
 
-      <div className="hero__visual" aria-hidden="true">
+      <div
+        className={`hero__visual ${isLogoSlide ? 'hero__visual--logo' : ''}`}
+        aria-hidden="true"
+      >
 
         <img
           className="hero__bracket hero__bracket--top"
@@ -94,21 +105,30 @@ function Hero() {
 
       </div>
 
-      <div className="hero__marquee" aria-hidden="true">
+      <div
+        className="hero__marquee"
+        aria-hidden="true"
+      >
         <div className="hero__marquee-track">
-          <span>Jóvenes que acompañan a jóvenes con diabetes</span>
-          <img src={starWhite} alt="" />
-          <span>Jóvenes que acompañan a jóvenes con diabetes</span>
-          <img src={starWhite} alt="" />
+
           <span>Jóvenes que acompañan a jóvenes con diabetes</span>
           <img src={starWhite} alt="" />
 
           <span>Jóvenes que acompañan a jóvenes con diabetes</span>
           <img src={starWhite} alt="" />
+
           <span>Jóvenes que acompañan a jóvenes con diabetes</span>
           <img src={starWhite} alt="" />
+
           <span>Jóvenes que acompañan a jóvenes con diabetes</span>
           <img src={starWhite} alt="" />
+
+          <span>Jóvenes que acompañan a jóvenes con diabetes</span>
+          <img src={starWhite} alt="" />
+
+          <span>Jóvenes que acompañan a jóvenes con diabetes</span>
+          <img src={starWhite} alt="" />
+
         </div>
       </div>
 

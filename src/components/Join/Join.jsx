@@ -1,7 +1,7 @@
 import Section from '../Section/Section';
 
 import joinImage from '../../assets/images/img-camiseta800.webp';
-import starWhiteIcon from '../../assets/icons/i-starwhite.svg';
+import logoWhiteIcon from '../../assets/logos/logoAxudi-mini-white.svg';
 import starBlueIcon from '../../assets/icons/i-starblue.svg';
 
 import './Join.scss';
@@ -47,7 +47,7 @@ function Join() {
         aria-label="Ir al formulario de asociación"
       >
         <img
-          src={starWhiteIcon}
+          src={logoWhiteIcon}
           alt=""
           aria-hidden="true"
           className="button__icon"

@@ -1,0 +1,128 @@
+@use '../../styles/abstracts/mixins' as *;
+
+/* ================================
+   NOT FOUND
+================================ */
+
+.not-found {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url('../../assets/images/im-cielobig.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+    
+  }
+
+  &__star {
+    width: 5rem;
+    margin-bottom: var(--space-sm);
+      transform: translateX(-9rem);
+  }
+
+  &__title {
+    margin: 0;
+
+    color: var(--color-primary);
+
+    font-family: var(--font-main);
+    font-size: clamp(7rem, 30vw, 15rem);
+    line-height: 0.9;
+  }
+
+  &__text {
+    margin: var(--space-sm) 0 0;
+
+    color: var(--color-primary);
+
+    font-family: var(--font-main);
+    font-size: clamp(2rem, 6vw, 2rem);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  &__subtitle {
+    max-width: 22rem;
+    margin: var(--space-sm) 0 var(--space-lg);
+
+    color: var(--color-primary);
+
+    font-family: var(--font-accent);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  /* breakpoint --- TABLET */
+
+  @include tablet {
+    &__star {
+      width: 7rem;
+    }
+
+    &__subtitle {
+      max-width: 28rem;
+      font-size: 1.7rem;
+    }
+  }
+
+  /* breakpoint --- DESKTOP */
+
+  @include desktop {
+    &__star {
+      width: 8rem;
+    }
+
+    &__subtitle {
+      max-width: 32rem;
+      font-size: 2rem;
+    }
+  }
+
+  /* breakpoint --- DESKTOP XL */
+
+  @include desktop-xl {
+    &__star {
+      width: 10rem;
+    }
+
+    &__title {
+      font-size: 16rem;
+    }
+
+    &__text {
+      font-size: 4rem;
+    }
+
+    &__subtitle {
+      max-width: 40rem;
+      font-size: 2.5rem;
+    }
+  }
+}

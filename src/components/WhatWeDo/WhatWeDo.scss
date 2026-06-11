@@ -1,132 +1,245 @@
-/* WHAT WE DO */
+@use '../../styles/abstracts/mixins' as *;
+
+/* WHAT WE DO --- Mobile first */
 
 .what-we-do {
   position: relative;
   overflow: hidden;
+
   min-height: 100dvh;
-
-  padding-block: var(--space-md);
-
+  padding-block: var(--space-lg);
 
   background-color: var(--color-primary);
   color: var(--color-white);
 
+  .container,
   &__container {
     position: relative;
-
-    padding-top: 3rem;
-    
+    margin-bottom: 4rem;
   }
 
   &__decoration {
     position: absolute;
-    top: 2rem;
-    left: var(--space-xs);
+    top: 0;
+    left: 0;
     z-index: 1;
 
     img {
-      width: 5.5rem;
+      width: 5rem;
       display: block;
     }
   }
 
   &__logo {
     position: absolute;
-    left: 1rem;
-    bottom: 2rem;
+    left: -5rem;
+    bottom: -2rem;
 
-    width: 12rem;
-    height: 12rem;
+    width: 14rem;
+    height: 14rem;
 
-    opacity: 0.1;
+    opacity: 0.12;
     pointer-events: none;
-    
   }
 
   &__title {
     position: relative;
     z-index: 2;
 
-    margin: 0 0 var(--space-sm);
-    padding-left: var(--space-md);
+    margin: 0 0 var(--space-md);
     padding-top: var(--space-lg);
+    padding-left: var(--space-md);
 
     color: var(--color-white);
 
     font-family: var(--font-main);
-    font-size: clamp(2.5rem, 12vw, 4rem);
+    font-size: clamp(3.5rem, 15vw, 5rem);
     line-height: 1;
     text-transform: lowercase;
   }
 
-&__cards {
-  position: relative;
-  z-index: 2;
+  &__cards {
+    position: relative;
+    z-index: 2;
 
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  align-items: center;
-}
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
 
-.card {
-  width: min(100%, 12rem);
-  max-width: 12rem;
-}
+  .reveal {
+    width: min(100%, 12rem);
+    max-width: 12rem;
+  }
 
-.card:nth-child(1) {
-  align-self: flex-start;
-  margin-left: var(--space-md);
-}
+  .card {
+    width: 100%;
+    max-width: 100%;
+  }
 
-.card:nth-child(2) {
-  align-self: flex-end;
-  margin-right: var(--space-md);
-  margin-top: -1rem;
-}
+  .reveal:nth-child(1),
+  .reveal:nth-child(3) {
+    align-self: flex-start;
+    margin-left: var(--space-md);
+  }
 
-.card:nth-child(3) {
-  align-self: flex-start;
-  margin-left: var(--space-md);
-  margin-top: -0.5rem;
-}
+  .reveal:nth-child(2),
+  .reveal:nth-child(4) {
+    align-self: flex-end;
+    margin-right: var(--space-md);
+  }
 
-.card:nth-child(4) {
-  align-self: flex-end;
-  margin-right: var(--space-md);
-  margin-top: -1rem;
-  margin-bottom: var(--space-lg);
-}
-}
+  .reveal:nth-child(2) {
+    margin-top: -0.5rem;
+  }
 
-/* TABLET / DESKTOP */
+  .reveal:nth-child(3) {
+    margin-top: -0.25rem;
+  }
 
-@media (min-width: 768px) {
-  .what-we-do {
-    min-height: 45rem;
-    padding-block: var(--space-lg);
-    min-height: 100dvh;
+  .reveal:nth-child(4) {
+    margin-top: -0.5rem;
+    margin-bottom: var(--space-lg);
+  }
 
+  /* breakpoint --- MOBILE */
+
+  @include mobile {
+    &__title {
+      padding-left: clamp(2rem, 8vw, 3rem);
+    }
+
+    &__decoration {
+      left: clamp(1rem, 6vw, 2.5rem);
+    }
+
+    &__cards {
+      width: min(100%, 22rem);
+      margin-inline: auto;
+    }
+
+    .reveal {
+      width: 12rem;
+      max-width: 12rem;
+    }
+
+    .reveal:nth-child(1),
+    .reveal:nth-child(3) {
+      margin-left: 1.5rem;
+    }
+
+    .reveal:nth-child(2),
+    .reveal:nth-child(4) {
+      margin-right: 1.5rem;
+    }
+  }
+
+  /* breakpoint --- TABLET */
+
+  @include tablet {
+    padding-block: var(--space-xl);
+
+    .container,
     &__container {
-      
+      width: 100%;
+      min-height: 55rem;
     }
 
     &__title {
       position: absolute;
-      left: 5rem;
-      bottom: 4rem;
+      top: 4rem;
+      left: 6rem;
 
+      max-width: 18rem;
       margin: 0;
-      padding-left: 0;
+      padding: 0;
 
-      font-size: clamp(5rem, 8vw, 7rem);
-      line-height: 0.95;
+      font-size: clamp(4.5rem, 8vw, 6rem);
+      line-height: 1;
     }
 
     &__decoration {
+      top: -1rem;
+      left: 2rem;
+      bottom: auto;
+
+      img {
+        width: 5.5rem;
+      }
+    }
+
+    &__logo {
+      right: 10rem;
+      left: auto;
+      top: 48rem;
+      bottom: auto;
+
+      width: 14rem;
+      height: 14rem;
+
+      opacity: 0.2;
+    }
+
+    &__cards {
+      position: relative;
+
+      width: min(100%, 45rem);
+      min-height: 10rem;
+
+      display: block;
+    }
+
+    .reveal {
+      position: absolute;
+
+      width: 12rem;
+      max-width: 12rem;
+
+      margin: 0;
+    }
+
+    .reveal:nth-child(1) {
+      top: 16rem;
+      left: 18%;
+    }
+
+    .reveal:nth-child(2) {
+      top: 27rem;
+      right: 12%;
+    }
+
+    .reveal:nth-child(3) {
+      top: 4rem;
+      right: 15.5%;
+    }
+
+    .reveal:nth-child(4) {
+      top: 39rem;
+      left: 21%;
+    }
+  }
+
+  /* breakpoint --- LAPTOP */
+
+  @include laptop {
+    .container,
+    &__container {
+      min-height: 42rem;
+      width: min(100%, 60rem);
+    }
+
+    &__title {
+      left: 7rem;
+      bottom: 6rem;
       top: auto;
-      left: 1rem;
+
+      font-size: clamp(5.5rem, 5vw, 7.5rem);
+    }
+
+    &__decoration {
+      left: 0.5rem;
       bottom: 16rem;
+      top: auto;
 
       img {
         width: 8rem;
@@ -134,47 +247,254 @@
     }
 
     &__logo {
-      top: 3rem;
-      left: 75rem;
+      top: 0;
+      bottom: auto;
+      right: 1.8rem;
 
-      width: 13rem;
-      height: 13rem;
-
-      opacity: 0.5;
+      width: 14rem;
+      height: 14rem;
     }
 
     &__cards {
-      position: relative;
-      min-height: 20rem;
-      display: block;
+      width: min(100%, 85rem);
     }
 
-    .card {
-      position: absolute;
+    .reveal:nth-child(1) {
+      top: 4rem;
+      left: 10%;
+    }
+
+    .reveal:nth-child(2) {
+      top: 7rem;
+      left: 56%;
+      right: auto;
+    }
+
+    .reveal:nth-child(3) {
+      top: 10rem;
+      right: 46%;
+      left: auto;
+    }
+
+    .reveal:nth-child(4) {
+      top: 14rem;
+      right: 0;
+      left: auto;
+    }
+  }
+
+  /* breakpoint --- DESKTOP */
+
+  @include desktop {
+    .container,
+    &__container {
+      min-height: 45rem;
+      width: min(100%, 75rem);
+    }
+
+    &__title {
+      left: 8rem;
+      bottom: 11rem;
+
+      font-size: clamp(6rem, 6vw, 8rem);
+    }
+
+    &__decoration {
+      left: 1rem;
+      bottom: 20rem;
+
+      img {
+        width: 8.5rem;
+      }
+    }
+
+    &__logo {
+      top: 0;
+      right: 2rem;
+
+      width: 14rem;
+      height: 14rem;
+    }
+
+    &__cards {
+      width: min(100%, 75rem);
+      min-height: 17rem;
+      margin-inline: auto;
+    }
+
+    .reveal {
+      width: 13rem;
+      max-width: 13rem;
+    }
+
+    .reveal:nth-child(1) {
+      top: 2rem;
+      left: 10%;
+    }
+
+    .reveal:nth-child(2) {
+      top: 5rem;
+      left: 54%;
+      right: auto;
+    }
+
+    .reveal:nth-child(3) {
+      top: 8rem;
+      right: 50%;
+      left: auto;
+    }
+
+    .reveal:nth-child(4) {
+      top: 12rem;
+      right: 6%;
+      left: auto;
+    }
+  }
+
+  /* breakpoint --- DESKTOP BIG */
+
+  @include desktop-lg {
+    .container,
+    &__container {
+      min-height: 48rem;
+      width: min(100%, 85rem);
+    }
+
+    &__title {
+      left: 9rem;
+      bottom: 12rem;
+
+      font-size: clamp(6.5rem, 5vw, 8rem);
+    }
+
+    &__decoration {
+      left: 1.5rem;
+      bottom: 22rem;
+
+      img {
+        width: 9rem;
+      }
+    }
+
+    &__logo {
+      top: 0;
+      right: 3rem;
+
+      width: 14rem;
+      height: 14rem;
+    }
+
+    &__cards {
+      width: min(100%, 85rem);
+      min-height: 20rem;
+    }
+
+    .reveal {
       width: 14rem;
       max-width: 14rem;
-      margin: 0;
+    }
+
+    .reveal:nth-child(1) {
+      top: 1.5rem;
+      left: 11%;
+    }
+
+    .reveal:nth-child(2) {
+      top: 5rem;
+      left: 54%;
+      right: auto;
+    }
+
+    .reveal:nth-child(3) {
+      top: 8rem;
+      right: 50%;
+      left: auto;
+    }
+
+    .reveal:nth-child(4) {
+      top: 12rem;
+      right: 6.5%;
+      left: auto;
+    }
+  }
+
+  /* breakpoint --- DESKTOP XL */
+
+  @include desktop-xl {
+    .container,
+    &__container {
+      min-height: 50rem;
+      width: min(100%, 110rem);
+    }
+
+    &__title {
+      left: 12rem;
+      bottom: 3rem;
+
+      font-size: clamp(8rem, 5vw, 10rem);
+    }
+
+    &__decoration {
+      left: 3rem;
+      bottom: 17rem;
+
+      img {
+        width: 11rem;
+      }
+    }
+
+    &__logo {
+      top: 1rem;
+      right: 8.5rem;
+
+      width: 15rem;
+      height: 15rem;
+    }
+
+    &__cards {
+      width: min(100%, 110rem);
+      min-height: 26rem;
+    }
+
+    .reveal {
+      width: 19rem;
+      max-width: 17rem;
+    }
+
+    .reveal:nth-child(1) {
+      top: 2.5rem;
+      left: 11%;
+    }
+
+    .reveal:nth-child(2) {
+      top: 7rem;
+      left: 51%;
+      right: auto;
+    }
+
+    .reveal:nth-child(3) {
+      top: 11rem;
+      right: 53%;
+      left: auto;
+    }
+
+    .reveal:nth-child(4) {
+      top: 17rem;
+      right: 12%;
+      left: auto;
+    }
+  }
+
+  /* accesibility --- REDUCE MOTION */
+
+  @include reduce-motion {
+    .reveal {
+      transition: none;
       transform: none;
     }
 
-    .card:nth-child(1) {
-      top: 6rem;
-      left: 7rem;
-    }
-
-    .card:nth-child(2) {
-      top: 13rem;
-      left: 25rem;
-    }
-
-    .card:nth-child(3) {
-      top: 2rem;
-      right: 20rem;
-    }
-
-    .card:nth-child(4) {
-      top: 13rem;
-      right: 2rem;
+    .card {
+      transform: none;
     }
   }
 }

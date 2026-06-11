@@ -83,10 +83,18 @@ function Footer() {
 
               <li>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/axudi_asturias/"
                   aria-label="Instagram de AXUDI"
                 >
                   Instagram
+                </a>
+              </li>
+                            <li>
+                <a
+                  href="https://www.tiktok.com/@axudi_asturias"
+                  aria-label="Tiktok de AXUDI"
+                >
+                  Tiktok
                 </a>
               </li>
 

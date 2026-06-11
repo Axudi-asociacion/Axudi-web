@@ -1,5 +1,32 @@
+/* 
+
+NOTICIAS AXUDI
+
+   Cómo añadir una noticia nueva:
+
+   1. Importar la imagen al inicio del archivo.
+   2. Copiar uno de los bloques existentes.
+   3. Cambiar:
+      - id (único)
+      - title
+      - excerpt
+      - body
+      - image
+      - alt
+      - category
+      - date
+
+   Formato de fecha:
+   YYYY-MM-DD
+
+   Las noticias se ordenan automáticamente por fecha.
+*/
+
+
+/* IMAGES IMPORT  */
 import newsImage from '../assets/images/im-manos800.webp';
 
+/* NEWS CODE */
 const newsItems = [
   {
     id: 'primer-encuentro-axudi',

@@ -142,16 +142,17 @@ function Footer() {
           <p className="footer__copy">
             © 2026 AXUDI. Todos los derechos reservados.
           </p>
-
-          <p className="footer__credits">
-            Web creada por{' '}
-            <a
-              href="#"
-              aria-label="Web de Cristina en Órbita"
-            >
-              Cristina en Órbita
-            </a>
-          </p>
+<p className="footer__credits">
+  Web creada por{' '}
+  <a
+    href="https://www.linkedin.com/in/cristina-en-orbita"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Perfil de LinkedIn de Cristina en Órbita"
+  >
+    Cristina en Órbita
+  </a>
+</p>
 
         </div>
 

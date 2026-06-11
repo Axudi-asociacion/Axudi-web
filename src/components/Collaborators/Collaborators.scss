@@ -1,9 +1,6 @@
 @use '../../styles/abstracts/mixins' as *;
 
-/* ================================
-   COLLABORATORS
-   Mobile first
-================================ */
+/* COLLABORATORS --- Mobile first */
 
 .collaborators {
   min-height: 100dvh;
@@ -12,12 +9,12 @@
   display: flex;
   align-items: center;
 
+  overflow: hidden;
+
   background-image: url('../../assets/images/im-background2blue.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
-  overflow: hidden;
 
   &__title {
     margin: 0 0 var(--space-md);
@@ -75,6 +72,7 @@
   &__slide--active {
     opacity: 1;
     z-index: 2;
+
     pointer-events: auto;
 
     transform: scale(1);
@@ -85,12 +83,12 @@
     display: none;
   }
 
-  /* ASTERISCOS */
+  /* indicators */
 
   &__indicators {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: var(--space-xs);
   }
 
@@ -99,7 +97,6 @@
 
     border: 0;
     background: transparent;
-
     color: rgba(0, 74, 172, 0.3);
 
     font-family: var(--font-main);
@@ -110,6 +107,7 @@
 
     &--active {
       color: var(--color-primary);
+
       transform: scale(1.25);
     }
 
@@ -120,7 +118,6 @@
     }
   }
 
-  /* TEXTO AGRADECIMIENTO */
 
   &__intro {
     position: relative;
@@ -274,146 +271,167 @@
 
   /* breakpoint --- LAPTOP */
 
-  @include laptop {
-    &__title {
-      margin-bottom: var(--space-xl);
-    }
-
-    &__content {
-      width: min(100%, 68rem);
-      margin-inline: auto;
-
-      display: grid;
-      grid-template-columns: 0.9fr 1.4fr;
-      gap: var(--space-xl);
-
-      align-items: center;
-    }
-
-    &__intro {
-      grid-column: 1;
-      grid-row: 1;
-
-      order: initial;
-    }
-
-    &__carousel-block {
-      grid-column: 2;
-      grid-row: 1;
-
-      order: initial;
-    }
-
-    &__slides {
-      width: 40rem;
-    }
-
-    &__slide--previous {
-      transform: translateX(-10rem) scale(0.88);
-    }
-
-    &__slide--next {
-      transform: translateX(10rem) scale(0.88);
-    }
+@include laptop {
+  &__title {
+    margin-bottom: var(--space-xl);
   }
 
-  /* breakpoint --- DESKTOP */
+  &__content {
+    width: min(100%, 58rem);
+    margin-inline: auto;
 
-  @include desktop {
-    &__content {
-      width: min(100%, 80rem);
-      grid-template-columns: 1fr 1.5fr;
-    }
+    display: grid;
+    grid-template-columns: 0.75fr 1.25fr;
+    gap: var(--space-md);
 
-    &__slides {
-      width: 42rem;
-      min-height: 29rem;
-    }
-
-    &__slide--active {
-      transform: translateX(0) scale(1.05);
-    }
-
-    &__slide--previous {
-      transform: translateX(-11rem) scale(0.9);
-    }
-
-    &__slide--next {
-      transform: translateX(11rem) scale(0.9);
-    }
+    align-items: center;
   }
 
-  /* breakpoint --- DESKTOP BIG */
+  &__intro {
+    grid-column: 1;
+    grid-row: 1;
 
-  @include desktop-lg {
-    &__content {
-      width: min(100%, 88rem);
-    }
-
-    &__slides {
-      width: 46rem;
-      min-height: 31rem;
-    }
-
-    &__intro {
-      width: 26rem;
-      min-height: 17rem;
-    }
-
-    &__bracket {
-      width: 8.5rem;
-    }
-
-    &__text {
-      width: 14rem;
-
-      font-size: 2.3rem;
-    }
+    order: initial;
   }
 
-  /* breakpoint --- DESKTOP XL */
+  &__carousel-block {
+    grid-column: 2;
+    grid-row: 1;
 
-  @include desktop-xl {
-    &__title {
-      font-size: 9rem;
-    }
+    order: initial;
 
-    &__content {
-      width: min(100%, 115rem);
-    }
-
-    &__slides {
-      width: 62rem;
-      min-height: 40rem;
-    }
-
-    &__slide--previous {
-      transform: translateX(-15rem) scale(0.9);
-    }
-
-    &__slide--next {
-      transform: translateX(15rem) scale(0.9);
-    }
-
-    &__intro {
-      width: 34rem;
-      min-height: 22rem;
-    }
-
-    &__bracket {
-      width: 11rem;
-    }
-
-    &__text {
-      width: 18rem;
-
-      font-size: 3rem;
-    }
-
-    &__indicator {
-      font-size: 3rem;
-    }
+    width: 100%;
+    justify-self: center;
+    overflow: visible;
   }
+
+  &__slides {
+    width: 34rem;
+    min-height: 28rem;
+    margin-inline: auto;
+  }
+
+  &__slide--previous {
+    transform: translateX(-8rem) scale(0.88);
+  }
+
+  &__slide--next {
+    transform: translateX(8rem) scale(0.88);
+  }
+}
+
+/* breakpoint --- DESKTOP */
+
+@include desktop {
+  &__content {
+    width: min(100%, 68rem);
+    grid-template-columns: 0.75fr 1.25fr;
+    gap: var(--space-lg);
+  }
+
+  &__slides {
+    width: 38rem;
+    min-height: 29rem;
+  }
+
+  &__slide--active {
+    transform: translateX(0) scale(1.05);
+  }
+
+  &__slide--previous {
+    transform: translateX(-9rem) scale(0.9);
+  }
+
+  &__slide--next {
+    transform: translateX(9rem) scale(0.9);
+  }
+}
+
+/* breakpoint --- DESKTOP BIG */
+
+@include desktop-lg {
+  &__content {
+    width: min(100%, 76rem);
+  }
+
+  &__slides {
+    width: 42rem;
+    min-height: 31rem;
+  }
+
+  &__slide--previous {
+    transform: translateX(-10rem) scale(0.9);
+  }
+
+  &__slide--next {
+    transform: translateX(10rem) scale(0.9);
+  }
+
+  &__intro {
+    width: 26rem;
+    min-height: 17rem;
+  }
+
+  &__bracket {
+    width: 8.5rem;
+  }
+
+  &__text {
+    width: 14rem;
+
+    font-size: 2.3rem;
+  }
+}
+
+/* breakpoint --- DESKTOP XL */
+
+@include desktop-xl {
+  &__title {
+    font-size: 10rem;
+  }
+
+  &__content {
+    width: min(100%, 125rem);
+    grid-template-columns: 0.8fr 1.4fr;
+    gap: var(--space-xs);
+  }
+
+  &__slides {
+    width: 50rem;
+    min-height: 48rem;
+  }
+
+  &__slide--active {
+    transform: translateX(0) scale(1.12);
+  }
+
+  &__slide--previous {
+    transform: translateX(-18rem) scale(0.95);
+  }
+
+  &__slide--next {
+    transform: translateX(18rem) scale(0.95);
+  }
+
+  &__intro {
+    width: 38rem;
+    min-height: 24rem;
+  }
+
+  &__bracket {
+    width: 10rem;
+  }
+
+  &__text {
+    width: 20rem;
+
+    font-size: 3rem;
+  }
+
+  &__indicator {
+    font-size: 3.4rem;
+  }
+}
 
   /* accesibility --- REDUCE MOTION */
 

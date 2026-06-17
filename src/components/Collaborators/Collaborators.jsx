@@ -5,6 +5,7 @@ import CollaboratorCard from '../CollaboratorCard/CollaboratorCard';
 
 import bracketTop from '../../assets/logos/logoAxudi-ladoizq.svg';
 import bracketBottom from '../../assets/logos/logoAxudi-ladodrch.svg';
+import arrowBlue from '../../assets/icons/i-arrowblue.svg';
 import handsImage from '../../assets/images/im-manos800.webp';
 
 import './Collaborators.scss';
@@ -101,49 +102,70 @@ function Collaborators() {
 
         <div className="collaborators__carousel-block">
 
-          <div
-            className="collaborators__slides"
-            aria-label="Carrusel de colaboradores"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-            {collaborators.map((collaborator, index) => (
-              <div
-                key={collaborator.name}
-                className={`collaborators__slide collaborators__slide--${getSlidePosition(index)}`}
-                aria-hidden={index !== currentSlide}
-              >
-                <CollaboratorCard
-                  name={collaborator.name}
-                  role={collaborator.role}
-                  image={collaborator.image}
-                  alt={collaborator.alt}
-                />
-              </div>
-            ))}
+          <div className="collaborators__carousel">
+            <button
+              className="collaborators__control collaborators__control--previous"
+              type="button"
+              aria-label="Ver colaborador anterior"
+              onClick={goToPreviousSlide}
+            >
+              <img src={arrowBlue} alt="" aria-hidden="true" />
+            </button>
+
+            <div
+              className="collaborators__slides"
+              aria-label="Carrusel de colaboradores"
+              aria-live="polite"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {collaborators.map((collaborator, index) => (
+                <div
+                  key={collaborator.name}
+                  className={`collaborators__slide collaborators__slide--${getSlidePosition(index)}`}
+                  aria-hidden={index !== currentSlide}
+                >
+                  <CollaboratorCard
+                    name={collaborator.name}
+                    role={collaborator.role}
+                    image={collaborator.image}
+                    alt={collaborator.alt}
+                  />
+                </div>
+              ))}
+            </div>
+
+            <button
+              className="collaborators__control collaborators__control--next"
+              type="button"
+              aria-label="Ver colaborador siguiente"
+              onClick={goToNextSlide}
+            >
+              <img src={arrowBlue} alt="" aria-hidden="true" />
+            </button>
           </div>
 
-          <div
-            className="collaborators__indicators"
-            aria-label="Seleccionar colaborador"
-          >
-            {collaborators.map((collaborator, index) => (
-              <button
-                key={collaborator.name}
-                className={`collaborators__indicator ${
-                  index === currentSlide
-                    ? 'collaborators__indicator--active'
-                    : ''
-                }`}
-                type="button"
-                onClick={() => setCurrentSlide(index)}
-                aria-label={`Ver ${collaborator.name}`}
-                aria-current={index === currentSlide ? 'true' : undefined}
-              >
-                *
-              </button>
-            ))}
+          <div className="collaborators__meta">
+            <div
+              className="collaborators__indicators"
+              aria-label="Seleccionar colaborador"
+            >
+              {collaborators.map((collaborator, index) => (
+                <button
+                  key={collaborator.name}
+                  className={`collaborators__indicator ${
+                    index === currentSlide
+                      ? 'collaborators__indicator--active'
+                      : ''
+                  }`}
+                  type="button"
+                  onClick={() => setCurrentSlide(index)}
+                  aria-label={`Ver ${collaborator.name}`}
+                  aria-current={index === currentSlide ? 'true' : undefined}
+                />
+              ))}
+            </div>
           </div>
 
         </div>

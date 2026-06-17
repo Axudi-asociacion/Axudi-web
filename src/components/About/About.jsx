@@ -27,6 +27,8 @@ function About() {
             src={groupBg}
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 

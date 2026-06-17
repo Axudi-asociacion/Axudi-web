@@ -34,6 +34,8 @@ function NewsCard({
               className="news-card__image"
               src={image}
               alt={alt}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         )}

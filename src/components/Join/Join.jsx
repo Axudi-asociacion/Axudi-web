@@ -33,12 +33,16 @@ function Join() {
           src={starBlueIcon}
           alt=""
           aria-hidden="true"
+          loading="lazy"
+          decoding="async"
         />
 
         <img
           className="join__image"
           src={joinImage}
           alt="Persona con camiseta de AXUDI"
+          loading="lazy"
+          decoding="async"
         />
 
       <a
@@ -51,6 +55,8 @@ function Join() {
           alt=""
           aria-hidden="true"
           className="button__icon"
+          loading="lazy"
+          decoding="async"
         />
 
         Ir al formulario

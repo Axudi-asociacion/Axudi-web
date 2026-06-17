@@ -55,7 +55,7 @@
 
   &__text {
     max-width: 34rem;
-    margin: 1.5rem auto 0;
+    margin: 1.5rem;
 
     color: var(--color-primary);
 
@@ -224,13 +224,13 @@
 
   @include desktop-xl {
     &__title {
-      font-size: 10rem;
+      font-size: clamp(7rem, 4vw, 8.5rem);
     }
 
     &__text {
       max-width: 50rem;
 
-      font-size: 3rem;
+      font-size: clamp(2.25rem, 1.8vw, 2.75rem);
     }
 
     &__form {

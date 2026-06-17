@@ -18,6 +18,8 @@ function CollaboratorCard({
           className="collaborator-card__image"
           src={image}
           alt={alt}
+          loading="lazy"
+          decoding="async"
         />
       )}
 

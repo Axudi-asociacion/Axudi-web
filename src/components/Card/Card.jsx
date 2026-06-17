@@ -12,6 +12,8 @@ function Card({ title, image, alt, text }) {
         className="card__image"
         src={image}
         alt={alt}
+        loading="lazy"
+        decoding="async"
       />
 
       <p className="card__text">

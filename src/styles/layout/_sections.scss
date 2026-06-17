@@ -1,25 +1,7 @@
 section {
-  padding-block: var(--space-lg);
-}
-
-@media (min-width: 768px) {
-  section {
-    padding-block: var(--space-xl);
-  }
-}
-
-@media (min-width: 1024px) {
-  section {
-    padding-block: calc(var(--space-xl) + var(--space-md));
-  }
+  padding-block: var(--section-padding-block);
 }
 
 section[id] {
-  scroll-margin-top: 1rem;
-}
-
-@media (min-width: 768px) {
-  section[id] {
-    scroll-margin-top: 1rem;
-  }
+  scroll-margin-top: calc(var(--header-offset) + var(--space-sm));
 }

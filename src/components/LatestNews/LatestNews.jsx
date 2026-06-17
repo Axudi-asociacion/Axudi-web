@@ -44,6 +44,8 @@ function LatestNews() {
     alt=""
     aria-hidden="true"
     className="button__icon"
+    loading="lazy"
+    decoding="async"
   />
 
   Ver todas las noticias

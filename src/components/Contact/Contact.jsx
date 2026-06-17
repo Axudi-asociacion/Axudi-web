@@ -98,6 +98,7 @@ function Contact() {
       src={message}
       alt=""
       aria-hidden="true"
+      decoding="async"
     />
   </span>
 
@@ -111,6 +112,8 @@ function Contact() {
   src={mountain}
   alt=""
   aria-hidden="true"
+  loading="lazy"
+  decoding="async"
 />
 
     </Section>

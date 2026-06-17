@@ -133,7 +133,7 @@
 
   @include desktop-xl {
     &__title {
-      font-size: 10rem;
+      font-size: clamp(7rem, 4vw, 8.5rem);
       text-align: center;
     }
 

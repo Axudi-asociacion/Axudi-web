@@ -290,14 +290,14 @@
     }
 
     &__title {
-      font-size: 10rem;
+      font-size: clamp(7rem, 4vw, 8.5rem);
       margin-top: 6rem;
     }
 
     &__text {
       max-width: 34rem;
 
-      font-size: 3.3rem;
+      font-size: clamp(2.4rem, 2vw, 3rem);
     }
 
     &__right {
@@ -318,7 +318,7 @@
   min-height: 4rem;
   margin-top: 0;
 
-  font-size: clamp(2.5rem, 3vw, 3rem);
+  font-size: clamp(2.3rem, 2vw, 2.75rem);
 }
   }
 }

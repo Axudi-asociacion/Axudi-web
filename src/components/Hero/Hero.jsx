@@ -55,6 +55,7 @@ function Hero() {
           className="hero__star"
           src={starBlue}
           alt=""
+          decoding="async"
         />
       </div>
 
@@ -68,6 +69,7 @@ function Hero() {
           src={arrowBlue}
           alt=""
           aria-hidden="true"
+          decoding="async"
         />
       </a>
 
@@ -80,6 +82,7 @@ function Hero() {
           className="hero__bracket hero__bracket--top"
           src={bracketTop}
           alt=""
+          decoding="async"
         />
 
         <div className="hero__image-frame">
@@ -93,6 +96,9 @@ function Hero() {
               `}
               src={slide.image}
               alt=""
+              loading={index === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+              fetchPriority={index === 0 ? 'high' : 'low'}
             />
           ))}
         </div>
@@ -101,6 +107,7 @@ function Hero() {
           className="hero__bracket hero__bracket--bottom"
           src={bracketBottom}
           alt=""
+          decoding="async"
         />
 
       </div>

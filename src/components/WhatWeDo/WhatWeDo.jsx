@@ -2,7 +2,7 @@ import Card from '../Card/Card';
 import Reveal from '../Reveal/Reveal';
 import Section from '../Section/Section';
 
-import Mountain from '../../assets/images/im-montaña800.webp';
+import Mountain from '../../assets/images/im-montana800.webp';
 import Girls from '../../assets/images/im-chicas800.webp';
 import Hands from '../../assets/images/im-manos800.webp';
 import Meet from '../../assets/images/im-divulgacion800.webp';
@@ -19,6 +19,7 @@ function WhatWeDo() {
       id="que-hacemos"
     >
 
+      {/* Decoración de marca sobre el título. */}
       <div
         className="what-we-do__decoration"
         aria-hidden="true"
@@ -33,6 +34,7 @@ function WhatWeDo() {
         ¿Qué <br /> hacemos?
       </h2>
 
+      {/* Tarjetas de servicios/actividades principales. */}
       <div className="what-we-do__cards">
 
         <Reveal delay={50}>
@@ -73,6 +75,7 @@ function WhatWeDo() {
 
       </div>
 
+      {/* Logo de fondo decorativo. */}
       <div
         className="what-we-do__logo"
         aria-hidden="true"

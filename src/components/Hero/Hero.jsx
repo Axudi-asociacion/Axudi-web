@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import pointsImage from '../../assets/images/im-points800.webp';
-import mountainImage from '../../assets/images/im-montaña800.webp';
+import mountainImage from '../../assets/images/im-montana800.webp';
 import handsImage from '../../assets/images/im-manos800.webp';
 import girlsImage from '../../assets/images/im-chicas800.webp';
 
@@ -15,6 +15,7 @@ import arrowBlue from '../../assets/icons/i-arrowblue.svg';
 
 import './Hero.scss';
 
+// Secuencia de imágenes iniciales del hero antes de mostrar el logo.
 const heroSlides = [
   { id: 'points-1', image: pointsImage, isLogo: false },
   { id: 'points-2', image: pointsImage, isLogo: false },
@@ -29,6 +30,7 @@ function Hero() {
 
   const isLogoSlide = heroSlides[currentSlide].isLogo;
 
+  // Avanza automáticamente por las imágenes hasta llegar al logo final.
   useEffect(() => {
     if (currentSlide === heroSlides.length - 1) {
       return undefined;
@@ -47,6 +49,12 @@ function Hero() {
       id="inicio"
     >
 
+      {/* Título principal accesible sin alterar el diseño visual del hero. */}
+      <h1 className="visually-hidden">
+        AXUDI - Asociación Xuvenil de Diabetes
+      </h1>
+
+      {/* Elementos decorativos del fondo. */}
       <div
         className="hero__decorations"
         aria-hidden="true"
@@ -59,6 +67,7 @@ function Hero() {
         />
       </div>
 
+      {/* Acceso rápido hacia la primera sección de contenido. */}
       <a
         className="hero__arrow-link"
         href="#que-hacemos"
@@ -73,6 +82,7 @@ function Hero() {
         />
       </a>
 
+      {/* Imagen central animada con brackets de marca. */}
       <div
         className={`hero__visual ${isLogoSlide ? 'hero__visual--logo' : ''}`}
         aria-hidden="true"
@@ -112,6 +122,7 @@ function Hero() {
 
       </div>
 
+      {/* Frase en movimiento inferior. */}
       <div
         className="hero__marquee"
         aria-hidden="true"

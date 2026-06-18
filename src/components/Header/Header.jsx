@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
@@ -14,7 +14,9 @@ import './Header.scss';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const headerRef = useRef(null);
 
+  // Abre o cierra el menú principal.
   function toggleMenu() {
     setIsMenuOpen((prevState) => !prevState);
   }
@@ -23,6 +25,7 @@ function Header() {
     setIsMenuOpen(false);
   }
 
+  // Permite cerrar el menú con la tecla Escape.
   useEffect(() => {
     function handleEscape(event) {
       if (event.key === 'Escape') {
@@ -37,11 +40,33 @@ function Header() {
     };
   }, []);
 
+  // Cierra el menú al hacer click o tap fuera del header.
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return undefined;
+    }
+
+    function handleOutsidePointerDown(event) {
+      if (!headerRef.current?.contains(event.target)) {
+        closeMenu();
+      }
+    }
+
+    document.addEventListener('pointerdown', handleOutsidePointerDown);
+
+    return () => {
+      document.removeEventListener('pointerdown', handleOutsidePointerDown);
+    };
+  }, [isMenuOpen]);
+
   return (
-    <header className="header">
+    <header className="header" ref={headerRef}>
       <div className="container header__container">
+        {/* Botón principal de apertura/cierre del menú. */}
         <button
-          className="header__menu-button"
+          className={`header__menu-button ${
+            isMenuOpen ? 'header__menu-button--open' : ''
+          }`}
           type="button"
           aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={isMenuOpen}
@@ -51,15 +76,22 @@ function Header() {
           <img src={menuIcon} alt="" aria-hidden="true" />
         </button>
 
+        {/* Logo centrado que vuelve al inicio. */}
         <Link
           to="/#inicio"
           className="header__brand"
           aria-label="Ir al inicio"
           onClick={closeMenu}
         >
-          <img src={logo} alt="AXUDI" className="header__logo" />
+          <img
+            src={logo}
+            alt=""
+            aria-hidden="true"
+            className="header__logo"
+          />
         </Link>
 
+        {/* CTA visible en escritorio. */}
 <Link
   to="/#asociate"
   className="button button--secondary header__cta"
@@ -75,6 +107,7 @@ function Header() {
           Asóciate
         </Link>
 
+        {/* Menú desplegable con navegación, llamadas a la acción y redes. */}
         <nav
           id="main-menu"
           className={`header__nav ${isMenuOpen ? 'header__nav--open' : ''}`}
@@ -117,6 +150,20 @@ function Header() {
             <li>
               <Link to="/#noticias" onClick={closeMenu}>
                 Noticias y eventos
+              </Link>
+
+              <Link
+                to="/noticias-y-eventos"
+                className="header__nav-sublink"
+                onClick={closeMenu}
+              >
+                Ver todas las noticias
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/#newsletter" onClick={closeMenu}>
+                Newsletter
               </Link>
             </li>
 

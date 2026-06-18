@@ -1,0 +1,57 @@
+@use '../../styles/abstracts/mixins' as *;
+
+/* Texto que se escribe letra a letra al entrar en pantalla. */
+.typewriter-text {
+  display: inline-block;
+
+  &::after {
+    content: '';
+
+    display: inline-block;
+
+    width: 0.08em;
+    height: 0.82em;
+    margin-left: 0.08em;
+
+    vertical-align: -0.02em;
+
+    background-color: currentColor;
+    opacity: 0;
+  }
+
+  &--writing::after {
+    opacity: 1;
+  }
+
+  &--complete::after {
+    animation: typewriter-cursor-finish 0.8s steps(1, end) forwards;
+  }
+}
+
+@keyframes typewriter-cursor-finish {
+  0%,
+  24% {
+    opacity: 1;
+  }
+
+  25%,
+  49% {
+    opacity: 0;
+  }
+
+  50%,
+  74% {
+    opacity: 1;
+  }
+
+  75%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@include reduce-motion {
+  .typewriter-text::after {
+    display: none;
+  }
+}

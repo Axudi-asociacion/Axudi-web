@@ -1,19 +1,19 @@
-/* ABSTRACTS */
+/* ABSTRACTS: tokens, breakpoints y mixins compartidos */
 
 @use './abstracts/variables';
 @use './abstracts/mixins';
 @use './abstracts/breakpoints';
 
-/* BASE */
+/* BASE: reset y reglas tipográficas globales */
 
 @use './base/reset';
 @use './base/typography';
 
-/* LAYOUT */
+/* LAYOUT: contenedor y espaciados generales */
 
 @use './layout/container';
 @use './layout/sections';
 
-/* COMPONENTS */
+/* COMPONENTS: estilos reutilizables */
 
 @use './components/buttons';

@@ -1,7 +1,9 @@
+/* Espaciado vertical común para secciones. */
 section {
   padding-block: var(--section-padding-block);
 }
 
+/* Evita que la cabecera fija tape las secciones al navegar por anclas. */
 section[id] {
   scroll-margin-top: calc(var(--header-offset) + var(--space-sm));
 }

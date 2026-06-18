@@ -1,86 +1,88 @@
-/* 
+// Carga todos los archivos Markdown de noticias como texto en tiempo de build.
+const newsFiles = import.meta.glob('../content/news/*.md', {
+  eager: true,
+  import: 'default',
+  query: '?raw',
+});
 
-NOTICIAS AXUDI
+// Separa los metadatos del frontmatter y el contenido principal de la noticia.
+function parseFrontmatter(rawContent) {
+  const match = rawContent.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
 
-   Cómo añadir una noticia nueva:
+  if (!match) {
+    return {
+      data: {},
+      body: rawContent.trim(),
+    };
+  }
 
-   1. Importar la imagen al inicio del archivo.
-   2. Copiar uno de los bloques existentes.
-   3. Cambiar:
-      - id (único)
-      - title
-      - excerpt
-      - body
-      - image
-      - alt
-      - category
-      - date
+  const [, frontmatter, body] = match;
+  const data = {};
 
-   Formato de fecha:
-   YYYY-MM-DD
+  frontmatter.split('\n').forEach((line) => {
+    const separatorIndex = line.indexOf(':');
 
-   Las noticias se ordenan automáticamente por fecha.
-*/
+    if (separatorIndex === -1) {
+      return;
+    }
 
+    const key = line.slice(0, separatorIndex).trim();
+    const value = line
+      .slice(separatorIndex + 1)
+      .trim()
+      .replace(/^['"]|['"]$/g, '');
 
-/* IMAGES IMPORT  */
-import newsImage from '../assets/images/im-manos800.webp';
+    if (value === 'true') {
+      data[key] = true;
+      return;
+    }
 
-/* NEWS CODE */
-const newsItems = [
-  {
-    id: 'primer-encuentro-axudi',
-    title: 'Primer encuentro AXUDI',
+    if (value === 'false') {
+      data[key] = false;
+      return;
+    }
 
-    excerpt:
-      'Muy pronto compartiremos más información sobre nuestras próximas actividades.',
+    data[key] = value;
+  });
 
-    body:
-      'Estamos preparando el primer encuentro de AXUDI. Será una oportunidad para conocernos, compartir experiencias y comenzar a construir una comunidad joven y participativa alrededor de la diabetes.',
+  return {
+    data,
+    body: body.trim(),
+  };
+}
 
-    image: newsImage,
-    alt: 'Imagen del primer encuentro AXUDI',
+// Convierte el Markdown en texto plano para filtros, buscador y extractos largos.
+function markdownToText(markdown) {
+  return markdown
+    .replace(/^#{1,6}\s+/gm, '')
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/\*(.*?)\*/g, '$1')
+    .replace(/\[(.*?)\]\(.*?\)/g, '$1')
+    .replace(/`(.*?)`/g, '$1')
+    .replace(/\n{2,}/g, ' ')
+    .replace(/\n/g, ' ')
+    .trim();
+}
 
-    category: 'Evento',
+// Normaliza las noticias para que los componentes sigan recibiendo el mismo formato.
+const newsItems = Object.entries(newsFiles)
+  .map(([path, rawContent]) => {
+    const { data, body } = parseFrontmatter(rawContent);
+    const filename = path.split('/').pop().replace('.md', '');
 
-    date: '2026-05-01',
-  },
-
-  {
-    id: 'talleres-jovenes-diabetes',
-    title: 'Talleres para jóvenes con diabetes',
-
-    excerpt:
-      'Espacios para aprender, compartir experiencias y resolver dudas.',
-
-    body:
-      'Los talleres de AXUDI buscan ofrecer recursos prácticos para el día a día con diabetes. Compartiremos experiencias, resolveremos dudas y generaremos espacios de aprendizaje entre iguales.',
-
-    image: newsImage,
-    alt: 'Imagen de talleres para jóvenes con diabetes',
-
-    category: 'Talleres',
-
-    date: '2026-05-15',
-  },
-
-  {
-    id: 'nueva-etapa-asociacion',
-    title: 'Nueva etapa de la asociación',
-
-    excerpt:
-      'AXUDI empieza a caminar como comunidad joven, cercana y participativa.',
-
-    body:
-      'Iniciamos una nueva etapa con la ilusión de construir una asociación hecha por y para jóvenes con diabetes. Queremos generar espacios de encuentro, acompañamiento y divulgación útiles para toda la comunidad.',
-
-    image: newsImage,
-    alt: 'Imagen sobre AXUDI',
-
-    category: 'Asociación',
-
-    date: '2026-05-31',
-  },
-];
+    return {
+      id: data.id || filename,
+      title: data.title || '',
+      excerpt: data.excerpt || '',
+      body: markdownToText(body),
+      content: body,
+      image: data.image || '',
+      alt: data.alt || '',
+      category: data.category || 'Asociación',
+      date: data.date || '',
+      draft: data.draft === true,
+    };
+  })
+  .filter((news) => !news.draft);
 
 export default newsItems;

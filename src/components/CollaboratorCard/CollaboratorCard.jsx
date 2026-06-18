@@ -7,6 +7,7 @@ function CollaboratorCard({
   role
 }) {
   return (
+    // Tarjeta individual que se muestra dentro del carrusel de colaboradores.
     <article className="collaborator-card">
 
       <h3 className="collaborator-card__name">

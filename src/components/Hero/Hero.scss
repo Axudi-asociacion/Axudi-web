@@ -40,9 +40,10 @@
     display: inline-flex;
 
     &:focus-visible {
-      outline: 3px solid var(--color-focus);
+      outline: 3px solid var(--color-white);
       outline-offset: 4px;
       border-radius: 999px;
+      box-shadow: 0 0 0 6px var(--color-primary);
     }
   }
 

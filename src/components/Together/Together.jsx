@@ -1,11 +1,13 @@
 import togetherBg from '../../assets/images/im-juntosbig.webp';
 import bracketTop from '../../assets/logos/logoAxudi-ladoizq.svg';
 import bracketBottom from '../../assets/logos/logoAxudi-ladodrch.svg';
+import Reveal from '../Reveal/Reveal';
 
 import './Together.scss';
 
 function Together() {
   return (
+    // Sección full-screen con frase editorial sobre imagen de fondo.
     <section
       className="together"
       aria-labelledby="together-title"
@@ -16,29 +18,37 @@ function Together() {
       >
         <div className="together__overlay">
 
+          {/* Brackets decorativos alrededor del mensaje. */}
           <div
             className="together__decoration"
             aria-hidden="true"
           >
-            <img
-              className="together__bracket together__bracket--top"
-              src={bracketTop}
-              alt=""
-            />
+            <Reveal delay={80}>
+              <img
+                className="together__bracket together__bracket--top"
+                src={bracketTop}
+                alt=""
+              />
+            </Reveal>
 
-            <img
-              className="together__bracket together__bracket--bottom"
-              src={bracketBottom}
-              alt=""
-            />
+            <Reveal delay={180}>
+              <img
+                className="together__bracket together__bracket--bottom"
+                src={bracketBottom}
+                alt=""
+              />
+            </Reveal>
           </div>
 
-          <blockquote
-            id="together-title"
-            className="together__title"
-          >
-            Juntos cambiamos la forma de vivir con diabetes
-          </blockquote>
+          {/* Mensaje principal de la sección. */}
+          <Reveal delay={280}>
+            <blockquote
+              id="together-title"
+              className="together__title"
+            >
+              Juntos cambiamos la forma de vivir con diabetes
+            </blockquote>
+          </Reveal>
 
         </div>
       </div>

@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     <!-- Responsive -->
 
@@ -16,21 +17,37 @@
 
     <!-- SEO -->
 
+    <title>AXUDI | Asociación Xuvenil de Diabetes</title>
+
     <meta
       name="description"
       content="AXUDI - Asociación Xuvenil de Diabetes. Información, apoyo y actividades para jóvenes con diabetes y sus familias."
     />
+    <meta name="theme-color" content="#004aac" />
+    <meta property="og:site_name" content="AXUDI" />
+    <meta property="og:title" content="AXUDI | Asociación Xuvenil de Diabetes" />
+    <meta
+      property="og:description"
+      content="Información, apoyo y actividades para jóvenes con diabetes y sus familias."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/favicon/web-app-manifest-512x512.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="AXUDI | Asociación Xuvenil de Diabetes" />
+    <meta
+      name="twitter:description"
+      content="Información, apoyo y actividades para jóvenes con diabetes y sus familias."
+    />
 
     <!-- FAVICON -->
-
-    <title>AXUDI | Asociación Xuvenil de Diabetes</title>
 
     <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
 <link rel="shortcut icon" href="/favicon/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
 <meta name="apple-mobile-web-app-title" content="AXUDI" />
-<link rel="manifest" href="/site.webmanifest" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
 
   </head>
 
@@ -38,5 +55,16 @@
     <div id="root"></div>
 
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', (user) => {
+          if (!user) {
+            window.netlifyIdentity.on('login', () => {
+              document.location.href = '/admin/';
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>

@@ -222,15 +222,19 @@
   /* breakpoint --- LAPTOP */
 
   @include laptop {
+    min-height: auto;
+    padding-block: var(--space-lg);
+
     .container,
     &__container {
-      min-height: 42rem;
+      min-height: 34rem;
+      margin-bottom: 0;
       width: min(100%, 60rem);
     }
 
     &__title {
       left: 7rem;
-      bottom: 6rem;
+      bottom: 5rem;
       top: auto;
 
       font-size: clamp(5.5rem, 5vw, 7.5rem);
@@ -238,7 +242,7 @@
 
     &__decoration {
       left: 0.5rem;
-      bottom: 16rem;
+      bottom: 15rem;
       top: auto;
 
       img {
@@ -260,24 +264,24 @@
     }
 
     .reveal:nth-child(1) {
-      top: 4rem;
+      top: 3rem;
       left: 10%;
     }
 
     .reveal:nth-child(2) {
-      top: 7rem;
+      top: 6rem;
       left: 56%;
       right: auto;
     }
 
     .reveal:nth-child(3) {
-      top: 10rem;
+      top: 9rem;
       right: 46%;
       left: auto;
     }
 
     .reveal:nth-child(4) {
-      top: 14rem;
+      top: 13rem;
       right: 0;
       left: auto;
     }

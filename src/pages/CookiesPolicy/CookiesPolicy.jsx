@@ -7,6 +7,7 @@ function CookiesPolicy() {
     <>
       <Header />
 
+      {/* Página informativa sobre cookies. */}
       <main>
 
         <Section className="legal-page">

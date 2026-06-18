@@ -1,3 +1,4 @@
+/* Tarjeta del carrusel de colaboradores. */
 .collaborator-card {
   width: 14rem;
   padding: var(--space-sm);
@@ -19,11 +20,9 @@
 
   &__name {
     width: 100%;
-    margin: 0 0 var(--space-xs);
-    padding-bottom: var(--space-xs);
+    margin: 0 0 var(--space-sm);
 
     color: var(--color-primary);
-    border-bottom: 2px solid rgba(0, 74, 172, 0.18);
 
     font-family: var(--font-main);
     font-size: 1.8rem;
@@ -34,10 +33,10 @@
   &__image {
     width: 100%;
     aspect-ratio: 1 / 1;
+    padding: var(--space-xs);
 
-    object-fit: cover;
+    object-fit: contain;
     display: block;
-    filter: grayscale(100%);
   }
 
   &__role {

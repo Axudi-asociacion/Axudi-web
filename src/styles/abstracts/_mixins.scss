@@ -1,5 +1,6 @@
 @use './breakpoints' as *;
 
+/* Mixins para escribir media queries con nombres consistentes. */
 @mixin mobile {
   @media (min-width: $mobile) {
     @content;
@@ -36,6 +37,7 @@
   }
 }
 
+/* Respeta la preferencia del usuario de reducir movimiento. */
 @mixin reduce-motion {
   @media (prefers-reduced-motion: reduce) {
     @content;

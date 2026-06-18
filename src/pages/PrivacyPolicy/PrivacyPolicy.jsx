@@ -7,6 +7,7 @@ function PrivacyPolicy() {
     <>
       <Header />
 
+      {/* Página legal estática preparada para completar la política definitiva. */}
       <main>
 
         <Section className="legal-page">

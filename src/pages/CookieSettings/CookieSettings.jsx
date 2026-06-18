@@ -7,6 +7,7 @@ function CookieSettings() {
     <>
       <Header />
 
+      {/* Pantalla reservada para futuras preferencias de cookies. */}
       <main>
 
         <Section className="legal-page">

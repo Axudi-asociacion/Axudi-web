@@ -1,3 +1,5 @@
+@use '../../styles/abstracts/mixins' as *;
+
 /* ================================
    NEWS CARD
    Mobile first
@@ -80,7 +82,7 @@
    TABLET / DESKTOP
 ================================ */
 
-@media (min-width: 768px) {
+@include tablet {
   .news-card {
     &__top {
       gap: var(--space-md);

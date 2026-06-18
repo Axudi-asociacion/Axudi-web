@@ -2,13 +2,42 @@ import { Link } from 'react-router-dom';
 import './Footer.scss';
 
 import logoAxudi from '../../assets/logos/logoAxudi-mediumwhite.svg';
+import starWhite from '../../assets/icons/i-starwhite.svg';
 
-function Footer() {
+const footerMarqueeItems = [
+  'AXUDI',
+  'Jóvenes con diabetes',
+  'Comunidad',
+  'Apoyo',
+  'Actividades',
+];
+
+function Footer({ reveal = false }) {
+  function renderMarqueeGroup(groupIndex) {
+    return footerMarqueeItems.map((item) => (
+      <span
+        className={`footer__marquee-item ${
+          item === 'AXUDI' ? 'footer__marquee-item--brand' : ''
+        }`}
+        key={`${groupIndex}-${item}`}
+      >
+        {item}
+
+        <img
+          src={starWhite}
+          alt=""
+          aria-hidden="true"
+        />
+      </span>
+    ));
+  }
+
   return (
-    <footer className="footer">
+    <footer className={`footer ${reveal ? 'footer--reveal' : ''}`}>
 
       <div className="container">
 
+        {/* Bloque superior con marca, navegación y redes. */}
         <div className="footer__top">
 
           <div className="footer__brand">
@@ -23,7 +52,7 @@ function Footer() {
             </div>
 
             <p className="footer__description">
-              Asociación juvenil para jóvenes con diabetes.
+              Asociación juvenil para <br></br>jóvenes con diabetes.
             </p>
 
           </div>
@@ -105,6 +134,7 @@ function Footer() {
 
         </div>
 
+        {/* Enlaces legales. */}
         <div className="footer__legal">
 
           <ul className="footer__legal-list">
@@ -137,6 +167,7 @@ function Footer() {
 
         </div>
 
+        {/* Copyright y crédito de autoría. */}
         <div className="footer__bottom">
 
           <p className="footer__copy">
@@ -156,6 +187,25 @@ function Footer() {
 
         </div>
 
+      </div>
+
+      {/* Texto final en movimiento que cierra el footer. */}
+      <div
+        className="footer__marquee"
+        aria-label="AXUDI, jóvenes con diabetes, comunidad, apoyo y actividades"
+      >
+        <div className="footer__marquee-track">
+          <div className="footer__marquee-group">
+            {renderMarqueeGroup(1)}
+          </div>
+
+          <div
+            className="footer__marquee-group"
+            aria-hidden="true"
+          >
+            {renderMarqueeGroup(2)}
+          </div>
+        </div>
       </div>
 
     </footer>

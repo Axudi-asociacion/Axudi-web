@@ -2,6 +2,7 @@ import './Card.scss';
 
 function Card({ title, image, alt, text }) {
   return (
+    // Tarjeta genérica usada para servicios y equipo.
     <article className="card">
 
       <h3 className="card__title">

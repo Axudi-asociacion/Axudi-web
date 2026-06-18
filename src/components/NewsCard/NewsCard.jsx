@@ -10,6 +10,7 @@ function NewsCard({
   alt,
   href,
 }) {
+  // Contenido compartido: puede renderizarse como tarjeta simple o como enlace.
   const content = (
     <>
       <div className="news-card__top">
@@ -51,6 +52,7 @@ function NewsCard({
   );
 
   return (
+    // Si hay href, toda la noticia actúa como enlace navegable.
     <article className="news-card">
       {href ? (
         <Link

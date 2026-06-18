@@ -125,9 +125,56 @@
   }
 
   &__button {
+    width: min(100%, 14rem);
     margin-top: var(--space-sm);
 
     align-self: center;
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.95;
+      transform: none;
+    }
+  }
+
+  &__button-label {
+    position: relative;
+    z-index: 2;
+
+    min-width: 7.8rem;
+
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  &__sending-dots {
+    width: 1.2em;
+
+    display: inline-flex;
+    justify-content: flex-start;
+
+    span {
+      opacity: 0;
+      animation: contact-sending-dot 1.2s infinite;
+    }
+
+    span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+  }
+
+  &__retry-button {
+    width: min(100%, 14rem);
+
+    align-self: center;
+
+    img {
+      transform: rotate(90deg);
+    }
   }
 
   &__mountain {
@@ -246,8 +293,28 @@
 
   @include reduce-motion {
     &__input,
-    &__textarea {
+    &__textarea,
+    &__sending-dots span {
       transition: none;
+      animation: none;
+      opacity: 1;
     }
+  }
+}
+
+@keyframes contact-sending-dot {
+  0%,
+  20% {
+    opacity: 0;
+  }
+
+  35%,
+  75% {
+    opacity: 1;
+  }
+
+  90%,
+  100% {
+    opacity: 0;
   }
 }

@@ -5,6 +5,7 @@ function Reveal({ children, delay = 0 }) {
   const elementRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
+  // Activa la animación una sola vez cuando el bloque entra en pantalla.
   useEffect(() => {
     const element = elementRef.current;
 
@@ -16,7 +17,8 @@ function Reveal({ children, delay = 0 }) {
         }
       },
       {
-        threshold: 0.15,
+        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.18,
       }
     );
 
@@ -32,6 +34,7 @@ function Reveal({ children, delay = 0 }) {
   }, []);
 
   return (
+    // Mantiene el contenido renderizado y solo cambia la clase de visibilidad.
     <div
       ref={elementRef}
       className={`reveal ${isVisible ? 'reveal--visible' : ''}`}

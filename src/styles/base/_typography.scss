@@ -1,3 +1,4 @@
+/* Tipografía y color base de toda la web. */
 body {
   font-family: var(--font-secondary);
   font-size: var(--text-sm);
@@ -9,6 +10,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Escala global para titulares. */
 h1,
 h2,
 h3,
@@ -46,6 +48,25 @@ strong {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-focus);
+  outline: 3px solid var(--color-white);
   outline-offset: 4px;
+  box-shadow: 0 0 0 6px var(--color-primary);
+}
+
+/* Utilidad para contenido accesible solo para lectores de pantalla. */
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  overflow: hidden;
+
+  border: 0;
+
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }

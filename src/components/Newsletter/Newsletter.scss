@@ -1,0 +1,85 @@
+@use '../../styles/abstracts/mixins' as *;
+
+/* NEWSLETTER --- Mobile first */
+
+.newsletter {
+  min-height: 70dvh;
+  padding-block: var(--space-lg);
+
+  display: flex;
+  align-items: center;
+
+  background-color: var(--color-white);
+  color: var(--color-primary);
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__content {
+    width: min(100%, 38rem);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+
+    text-align: center;
+  }
+
+  &__title {
+    margin: 0;
+
+    color: var(--color-primary);
+
+    font-family: var(--font-main);
+    font-size: clamp(3rem, 13vw, 4.5rem);
+    line-height: 0.95;
+  }
+
+  &__text {
+    max-width: 30rem;
+    margin: 0;
+
+    font-family: var(--font-accent);
+    font-size: var(--text-lg);
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  &__button {
+    margin-top: var(--space-sm);
+  }
+
+  @include tablet {
+    min-height: 60dvh;
+    padding-block: var(--space-xl);
+
+    &__content {
+      width: min(100%, 52rem);
+    }
+
+    &__title {
+      font-size: clamp(4.5rem, 7vw, 7rem);
+    }
+
+    &__text {
+      max-width: 38rem;
+
+      font-size: 2rem;
+    }
+  }
+
+  @include desktop-xl {
+    &__title {
+      font-size: clamp(7rem, 4vw, 8.5rem);
+    }
+
+    &__text {
+      max-width: 46rem;
+
+      font-size: clamp(2.25rem, 1.8vw, 2.75rem);
+    }
+  }
+}

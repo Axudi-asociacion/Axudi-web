@@ -1,4 +1,5 @@
 import Section from '../Section/Section';
+import TypewriterText from '../TypewriterText/TypewriterText';
 
 import joinImage from '../../assets/images/img-camiseta800.webp';
 import logoWhiteIcon from '../../assets/logos/logoAxudi-mini-white.svg';
@@ -13,11 +14,14 @@ function Join() {
       id="asociate"
     >
 
+      {/* Texto de invitación a asociarse. */}
       <div className="join__left">
 
-        <h2 className="join__title">
-          Asóciate
-        </h2>
+        <TypewriterText
+          as="h2"
+          className="join__title"
+          text="Asóciate"
+        />
 
         <p className="join__text">
           Formar parte de AXUDI es formar parte de una comunidad
@@ -26,6 +30,7 @@ function Join() {
 
       </div>
 
+      {/* Imagen, decoración y botón hacia el formulario. */}
       <div className="join__right">
 
         <img
@@ -46,9 +51,11 @@ function Join() {
         />
 
       <a
-        href="#formulario"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSf0qofoR0gQOs6ht-dMc1plXF_rQpLtrJ1SHdwWauSuoxs0cg/viewform?pli=1"
         className="button button--primary join__button"
-        aria-label="Ir al formulario de asociación"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Abrir formulario de asociación en Google Forms"
       >
         <img
           src={logoWhiteIcon}

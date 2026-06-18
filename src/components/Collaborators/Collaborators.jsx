@@ -6,28 +6,45 @@ import CollaboratorCard from '../CollaboratorCard/CollaboratorCard';
 import bracketTop from '../../assets/logos/logoAxudi-ladoizq.svg';
 import bracketBottom from '../../assets/logos/logoAxudi-ladodrch.svg';
 import arrowBlue from '../../assets/icons/i-arrowblue.svg';
-import handsImage from '../../assets/images/im-manos800.webp';
+import logoDonSacarino from '../../assets/logos/l-DonSacarino.svg';
+import logoMartinValle from '../../assets/logos/l-MartinValleFotografia.svg';
+import logoGlucoUp from '../../assets/logos/l-GlucoUp.svg';
+import logoIkaroNails from '../../assets/logos/l-IkarosNails.svg';
+import logoCristinaOrbita from '../../assets/logos/l-CristinaEnOrbita.svg';
 
 import './Collaborators.scss';
 
+// Listado de colaboradores que alimenta el carrusel.
 const collaborators = [
   {
-    name: 'Colaborador 1',
-    role: 'Descripción breve',
-    image: handsImage,
-    alt: 'Manos unidas en señal de colaboración',
+    name: 'Don Sacarino',
+    role: 'Divulgador de diabetes y alimentación',
+    image: logoDonSacarino,
+    alt: 'Logo Don Sacarino',
   },
   {
-    name: 'Colaborador 2',
-    role: 'Descripción breve',
-    image: handsImage,
-    alt: 'Manos unidas en señal de colaboración',
+    name: 'Martin Valle Fotografía',
+    role: 'Fotografía de boda',
+    image: logoMartinValle,
+    alt: 'Logo Martin Valle Fotografía',
   },
   {
-    name: 'Colaborador 3',
-    role: 'Descripción breve',
-    image: handsImage,
-    alt: 'Manos unidas en señal de colaboración',
+    name: 'Gluco Up!',
+    role: 'Especialistas en glucosa',
+    image: logoGlucoUp,
+    alt: 'Logo Gluco Up!',
+  },
+  {
+    name: 'Ikaro Nails',
+    role: 'Servicios estéticos y formación',
+    image: logoIkaroNails,
+    alt: 'Logo Ikaro Nails',
+  },
+  {
+    name: 'Cristina en Órbita',
+    role: 'Diseño y desarrollo web',
+    image: logoCristinaOrbita,
+    alt: 'Logo Cristina en Órbita',
   },
 ];
 
@@ -36,26 +53,31 @@ function Collaborators() {
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
 
+  // Navega al colaborador anterior de forma circular.
   function goToPreviousSlide() {
     setCurrentSlide((prevSlide) =>
       prevSlide === 0 ? collaborators.length - 1 : prevSlide - 1
     );
   }
 
+  // Navega al colaborador siguiente de forma circular.
   function goToNextSlide() {
     setCurrentSlide((prevSlide) =>
       prevSlide === collaborators.length - 1 ? 0 : prevSlide + 1
     );
   }
 
+  // Guarda el punto inicial del gesto táctil.
   function handleTouchStart(event) {
     touchStartX.current = event.touches[0].clientX;
   }
 
+  // Actualiza la posición del dedo mientras se desliza.
   function handleTouchMove(event) {
     touchEndX.current = event.touches[0].clientX;
   }
 
+  // Decide si el gesto táctil cuenta como swipe lateral.
   function handleTouchEnd() {
     if (touchStartX.current === null || touchEndX.current === null) {
       return;
@@ -76,19 +98,26 @@ function Collaborators() {
     touchEndX.current = null;
   }
 
+  // Calcula si cada slide es activo, anterior, siguiente u oculto.
   function getSlidePosition(index) {
+    const previousSlide =
+      currentSlide === 0 ? collaborators.length - 1 : currentSlide - 1;
+    const nextSlide =
+      currentSlide === collaborators.length - 1 ? 0 : currentSlide + 1;
+
     if (index === currentSlide) {
       return 'active';
     }
 
-    if (
-      index === currentSlide - 1 ||
-      (currentSlide === 0 && index === collaborators.length - 1)
-    ) {
+    if (index === previousSlide) {
       return 'previous';
     }
 
-    return 'next';
+    if (index === nextSlide) {
+      return 'next';
+    }
+
+    return 'hidden';
   }
 
   return (
@@ -100,6 +129,7 @@ function Collaborators() {
 
       <div className="collaborators__content">
 
+        {/* Carrusel principal con controles, slides y puntos de navegación. */}
         <div className="collaborators__carousel-block">
 
           <div className="collaborators__carousel">
@@ -170,6 +200,7 @@ function Collaborators() {
 
         </div>
 
+        {/* Mensaje agradecimiento a colaboradores. */}
         <div className="collaborators__intro">
 
           <img

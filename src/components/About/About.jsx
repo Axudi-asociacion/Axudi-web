@@ -19,6 +19,7 @@ function About() {
       id="quienes-somos"
     >
 
+      {/* Bloque introductorio con imagen de fondo y texto de presentación. */}
       <div className="about__intro">
 
         <div className="about__image-wrapper">
@@ -47,6 +48,7 @@ function About() {
 
       </div>
 
+      {/* Tarjetas del equipo de AXUDI. */}
       <div className="about__team">
 
         <h3 className="about__team-title">
@@ -60,7 +62,7 @@ function About() {
     title="Yes"
     text="Secretaria"
     image={yesImage}
-    alt="Yes - Secretaria"
+    alt="Retrato de Yes"
   />
 </Reveal>
 
@@ -69,7 +71,7 @@ function About() {
     title="Alba"
     text="Presidenta"
     image={albaImage}
-    alt="Alba - Presidenta"
+    alt="Retrato de Alba"
   />
 </Reveal>
 
@@ -78,7 +80,7 @@ function About() {
     title="Pablo"
     text="Tesorero"
     image={pabloImage}
-    alt="Pablo - Tesorero"
+    alt="Retrato de Pablo"
   />
 </Reveal>
 

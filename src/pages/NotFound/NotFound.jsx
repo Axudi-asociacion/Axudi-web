@@ -7,6 +7,7 @@ import './NotFound.scss';
 
 function NotFound() {
   return (
+    // Página de error para cualquier ruta no registrada.
     <main className="not-found">
       <div className="container">
 
@@ -17,6 +18,7 @@ function NotFound() {
           aria-hidden="true"
         />
 
+        {/* Mensaje principal de error. */}
         <h1 className="not-found__title">
           404
         </h1>
@@ -29,6 +31,7 @@ function NotFound() {
           Vamos a llevarte de vuelta a casa
         </p>
 
+        {/* Acción para volver al inicio. */}
         <Link
           to="/"
           className="button button--primary"

@@ -77,8 +77,8 @@
     transform: translateX(0) scale(0.92);
 
     transition:
-      opacity 0.25s ease,
-      transform 0.25s ease;
+      opacity 0.42s ease,
+      transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   &__slide--active {
@@ -92,6 +92,10 @@
 
   &__slide--previous,
   &__slide--next {
+    display: none;
+  }
+
+  &__slide--hidden {
     display: none;
   }
 
@@ -115,7 +119,7 @@
     cursor: pointer;
 
     transition:
-      transform 0.25s ease,
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
       filter 0.25s ease;
 
     img {
@@ -130,8 +134,9 @@
     }
 
     &:focus-visible {
-      outline: 3px solid var(--color-focus);
+      outline: 3px solid var(--color-white);
       outline-offset: 4px;
+      box-shadow: 0 0 0 6px var(--color-primary);
     }
   }
 
@@ -181,8 +186,8 @@
     cursor: pointer;
     transition:
       background-color 0.25s ease,
-      transform 0.25s ease,
-      width 0.25s ease;
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
     &--active {
       width: 1.6rem;
@@ -190,8 +195,9 @@
     }
 
     &:focus-visible {
-      outline: 3px solid var(--color-focus);
+      outline: 3px solid var(--color-white);
       outline-offset: 4px;
+      box-shadow: 0 0 0 6px var(--color-primary);
     }
   }
 
@@ -320,12 +326,12 @@
 
     &__carousel,
     &__meta {
-      width: min(100%, 42rem);
+      width: min(100%, 40rem);
     }
 
     &__slides {
-      width: 32rem;
-      min-height: 28rem;
+      width: 30rem;
+      min-height: 26rem;
     }
 
     &__slide {
@@ -339,21 +345,26 @@
       opacity: 1;
       z-index: 3;
 
-      transform: translateX(0) scale(1.03);
+      transform: translateX(0) scale(1);
     }
 
     &__slide--previous {
-      opacity: 0.62;
+      opacity: 0.38;
       z-index: 1;
 
-      transform: translateX(-9.5rem) scale(0.86);
+      transform: translateX(-8.5rem) scale(0.78);
     }
 
     &__slide--next {
-      opacity: 0.62;
+      opacity: 0.38;
       z-index: 1;
 
-      transform: translateX(9.5rem) scale(0.86);
+      transform: translateX(8.5rem) scale(0.78);
+    }
+
+    &__slide--hidden {
+      display: none;
+      opacity: 0;
     }
 
     &__control {
@@ -364,173 +375,173 @@
 
   /* breakpoint --- LAPTOP */
 
-@include laptop {
-  &__title {
-    margin-bottom: var(--space-xl);
+  @include laptop {
+    &__title {
+      margin-bottom: var(--space-xl);
+    }
+
+    &__content {
+      width: min(100%, 58rem);
+      margin-inline: auto;
+
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: var(--space-md);
+
+      align-items: center;
+    }
+
+    &__intro {
+      grid-column: 1;
+      grid-row: 1;
+
+      order: initial;
+    }
+
+    &__carousel-block {
+      grid-column: 2;
+      grid-row: 1;
+
+      order: initial;
+
+      width: 100%;
+      justify-self: center;
+      overflow: visible;
+    }
+
+    &__slides {
+      width: 34rem;
+      min-height: 26rem;
+      margin-inline: auto;
+    }
+
+    &__slide--previous {
+      transform: translateX(-9rem) scale(0.78);
+    }
+
+    &__slide--next {
+      transform: translateX(9rem) scale(0.78);
+    }
   }
 
-  &__content {
-    width: min(100%, 58rem);
-    margin-inline: auto;
+  /* breakpoint --- DESKTOP */
 
-    display: grid;
-    grid-template-columns: 0.75fr 1.25fr;
-    gap: var(--space-md);
+  @include desktop {
+    &__content {
+      width: min(100%, 68rem);
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: var(--space-lg);
+    }
 
-    align-items: center;
+    &__slides {
+      width: 36rem;
+      min-height: 27rem;
+    }
+
+    &__slide--active {
+      transform: translateX(0) scale(1.03);
+    }
+
+    &__slide--previous {
+      transform: translateX(-10rem) scale(0.8);
+    }
+
+    &__slide--next {
+      transform: translateX(10rem) scale(0.8);
+    }
   }
 
-  &__intro {
-    grid-column: 1;
-    grid-row: 1;
+  /* breakpoint --- DESKTOP BIG */
 
-    order: initial;
+  @include desktop-lg {
+    &__content {
+      width: min(100%, 76rem);
+    }
+
+    &__slides {
+      width: 40rem;
+      min-height: 28rem;
+    }
+
+    &__slide--previous {
+      transform: translateX(-11rem) scale(0.8);
+    }
+
+    &__slide--next {
+      transform: translateX(11rem) scale(0.8);
+    }
+
+    &__intro {
+      width: 26rem;
+      min-height: 17rem;
+    }
+
+    &__bracket {
+      width: 8.5rem;
+    }
+
+    &__text {
+      width: 14rem;
+
+      font-size: 2.3rem;
+    }
   }
 
-  &__carousel-block {
-    grid-column: 2;
-    grid-row: 1;
+  /* breakpoint --- DESKTOP XL */
 
-    order: initial;
+  @include desktop-xl {
+    &__title {
+      font-size: clamp(7rem, 4vw, 8.5rem);
+    }
 
-    width: 100%;
-    justify-self: center;
-    overflow: visible;
+    &__content {
+      width: min(100%, 125rem);
+      grid-template-columns: 0.8fr 1.4fr;
+      gap: var(--space-xs);
+    }
+
+    &__slides {
+      width: 48rem;
+      min-height: 34rem;
+    }
+
+    &__slide--active {
+      transform: translateX(0) scale(1.08);
+    }
+
+    &__slide--previous {
+      transform: translateX(-15rem) scale(0.82);
+    }
+
+    &__slide--next {
+      transform: translateX(15rem) scale(0.82);
+    }
+
+    &__intro {
+      width: 38rem;
+      min-height: 24rem;
+    }
+
+    &__bracket {
+      width: 10rem;
+    }
+
+    &__text {
+      width: 20rem;
+
+      font-size: 3rem;
+    }
+
+    &__carousel,
+    &__meta {
+      width: min(100%, 64rem);
+    }
+
+    &__control {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
   }
-
-  &__slides {
-    width: 36rem;
-    min-height: 28rem;
-    margin-inline: auto;
-  }
-
-  &__slide--previous {
-    transform: translateX(-10rem) scale(0.87);
-  }
-
-  &__slide--next {
-    transform: translateX(10rem) scale(0.87);
-  }
-}
-
-/* breakpoint --- DESKTOP */
-
-@include desktop {
-  &__content {
-    width: min(100%, 68rem);
-    grid-template-columns: 0.75fr 1.25fr;
-    gap: var(--space-lg);
-  }
-
-  &__slides {
-    width: 38rem;
-    min-height: 29rem;
-  }
-
-  &__slide--active {
-    transform: translateX(0) scale(1.05);
-  }
-
-  &__slide--previous {
-    transform: translateX(-11rem) scale(0.88);
-  }
-
-  &__slide--next {
-    transform: translateX(11rem) scale(0.88);
-  }
-}
-
-/* breakpoint --- DESKTOP BIG */
-
-@include desktop-lg {
-  &__content {
-    width: min(100%, 76rem);
-  }
-
-  &__slides {
-    width: 42rem;
-    min-height: 31rem;
-  }
-
-  &__slide--previous {
-    transform: translateX(-12rem) scale(0.88);
-  }
-
-  &__slide--next {
-    transform: translateX(12rem) scale(0.88);
-  }
-
-  &__intro {
-    width: 26rem;
-    min-height: 17rem;
-  }
-
-  &__bracket {
-    width: 8.5rem;
-  }
-
-  &__text {
-    width: 14rem;
-
-    font-size: 2.3rem;
-  }
-}
-
-/* breakpoint --- DESKTOP XL */
-
-@include desktop-xl {
-  &__title {
-    font-size: clamp(7rem, 4vw, 8.5rem);
-  }
-
-  &__content {
-    width: min(100%, 125rem);
-    grid-template-columns: 0.8fr 1.4fr;
-    gap: var(--space-xs);
-  }
-
-  &__slides {
-    width: 50rem;
-    min-height: 48rem;
-  }
-
-  &__slide--active {
-    transform: translateX(0) scale(1.12);
-  }
-
-  &__slide--previous {
-    transform: translateX(-18rem) scale(0.9);
-  }
-
-  &__slide--next {
-    transform: translateX(18rem) scale(0.9);
-  }
-
-  &__intro {
-    width: 38rem;
-    min-height: 24rem;
-  }
-
-  &__bracket {
-    width: 10rem;
-  }
-
-  &__text {
-    width: 20rem;
-
-    font-size: 3rem;
-  }
-
-  &__carousel,
-  &__meta {
-    width: min(100%, 64rem);
-  }
-
-  &__control {
-    width: 4.5rem;
-    height: 4.5rem;
-  }
-}
 
   /* accesibility --- REDUCE MOTION */
 

@@ -5,6 +5,7 @@ import App from './App.jsx';
 
 import './styles/main.scss';
 
+// Punto de entrada de React: monta la aplicación dentro de #root.
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>

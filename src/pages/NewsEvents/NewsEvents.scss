@@ -1,3 +1,5 @@
+@use '../../styles/abstracts/mixins' as *;
+
 /* ================================
    NEWS EVENTS PAGE
    Mobile first
@@ -62,9 +64,17 @@
     line-height: 1.25;
   }
 
-  &__filters {
+  &__filters-panel {
     width: min(100% - 2rem, 42rem);
     margin-bottom: var(--space-md);
+  }
+
+  &__filters-summary {
+    width: 100%;
+  }
+
+  &__filters {
+    width: 100%;
     padding: var(--space-sm);
 
     display: grid;
@@ -105,8 +115,9 @@
     font-size: var(--text-sm);
 
     &:focus-visible {
-      outline: 3px solid var(--color-focus);
+      outline: 3px solid var(--color-white);
       outline-offset: 3px;
+      box-shadow: 0 0 0 6px var(--color-primary);
     }
   }
 
@@ -116,11 +127,17 @@
   }
 
   &__results {
-    margin: 0 0 var(--space-sm);
+    width: 100%;
+    margin: 0;
+
+    color: var(--color-primary);
 
     font-family: var(--font-secondary);
     font-size: var(--text-sm);
     font-weight: 700;
+    text-align: center;
+
+    justify-self: center;
   }
 
   &__cards {
@@ -184,8 +201,9 @@
     }
 
     &:focus-visible {
-      outline: 3px solid var(--color-focus);
+      outline: 3px solid var(--color-white);
       outline-offset: 4px;
+      box-shadow: 0 0 0 6px var(--color-primary);
     }
   }
 }
@@ -194,7 +212,7 @@
    TABLET / DESKTOP
 ================================ */
 
-@media (min-width: 768px) {
+@include tablet {
   .news-events-page {
     display: flex;
     align-items: center;
@@ -219,11 +237,18 @@
     }
 
     &__filters {
-      width: min(100%, 70rem);
       padding: var(--space-md);
 
       grid-template-columns: 1.2fr 0.8fr 1fr auto;
       align-items: end;
+    }
+
+    &__filters-panel {
+      width: min(100%, 70rem);
+    }
+
+    &__results {
+      grid-column: 1 / -1;
     }
 
     &__reset {

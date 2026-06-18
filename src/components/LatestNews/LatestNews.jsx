@@ -10,6 +10,7 @@ import starBlueIcon from '../../assets/icons/i-starblue.svg';
 import './LatestNews.scss';
 
 function LatestNews() {
+  // Muestra solo las tres noticias más recientes en la home.
   const latestNews = [...newsItems]
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, 3);
@@ -21,6 +22,7 @@ function LatestNews() {
         Últimas noticias
       </h2>
 
+      {/* Listado reducido de noticias destacadas. */}
       <div className="latest-news__list">
         {latestNews.map((news) => (
           <NewsCard
@@ -33,6 +35,7 @@ function LatestNews() {
         ))}
       </div>
 
+  {/* Enlace al archivo completo de noticias y eventos. */}
   <Link
   to="/noticias-y-eventos"
   className="button button--secondary latest-news__button"

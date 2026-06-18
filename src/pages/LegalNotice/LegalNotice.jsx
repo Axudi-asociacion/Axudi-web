@@ -7,6 +7,7 @@ function LegalNotice() {
     <>
       <Header />
 
+      {/* Página legal estática preparada para completar datos definitivos. */}
       <main>
 
         <Section className="legal-page">

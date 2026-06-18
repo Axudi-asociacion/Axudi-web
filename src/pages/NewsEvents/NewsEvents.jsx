@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Section from '../../components/Section/Section';
 import NewsCard from '../../components/NewsCard/NewsCard';
+import TypewriterText from '../../components/TypewriterText/TypewriterText';
 
 import newsItems from '../../data/newsItems';
 
@@ -12,17 +13,20 @@ import './NewsEvents.scss';
 const ITEMS_PER_PAGE = 6;
 
 function NewsEvents() {
+  // Estado de filtros, orden y paginación del archivo de noticias.
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('todas');
   const [sortOrder, setSortOrder] = useState('desc');
 
+  // Categorías disponibles generadas desde el contenido publicado.
   const categories = useMemo(() => {
     const uniqueCategories = newsItems.map((news) => news.category);
 
     return ['todas', ...new Set(uniqueCategories)];
   }, []);
 
+  // Aplica búsqueda, categoría y orden cronológico.
   const filteredNews = useMemo(() => {
     return [...newsItems]
       .filter((news) => {
@@ -49,6 +53,7 @@ function NewsEvents() {
       });
   }, [searchTerm, selectedCategory, sortOrder]);
 
+  // Calcula la página visible a partir de los resultados filtrados.
   const totalPages = Math.ceil(filteredNews.length / ITEMS_PER_PAGE) || 1;
 
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -58,6 +63,7 @@ function NewsEvents() {
     startIndex + ITEMS_PER_PAGE
   );
 
+  // Cada cambio de filtro vuelve a la primera página de resultados.
   function handleSearchChange(event) {
     setSearchTerm(event.target.value);
     setCurrentPage(1);
@@ -89,9 +95,11 @@ function NewsEvents() {
 
           <header className="news-events-page__header">
 
-            <h1 className="news-events-page__title">
-              Noticias y eventos
-            </h1>
+            <TypewriterText
+              as="h1"
+              className="news-events-page__title"
+              text="Noticias y eventos"
+            />
 
             <p className="news-events-page__intro">
               Aquí encontrarás nuestras actividades, encuentros,
@@ -100,6 +108,7 @@ function NewsEvents() {
 
           </header>
 
+          {/* Panel desplegable de filtros y ordenación. */}
           <details className="news-events-page__filters-panel">
 
             <summary className="news-events-page__filters-summary">
@@ -195,18 +204,18 @@ function NewsEvents() {
                 Limpiar filtros
               </button>
 
+              <p
+                className="news-events-page__results"
+                aria-live="polite"
+              >
+                {filteredNews.length === 1
+                  ? '1 noticia encontrada'
+                  : `${filteredNews.length} noticias encontradas`}
+              </p>
+
             </form>
 
           </details>
-
-          <p
-            className="news-events-page__results"
-            aria-live="polite"
-          >
-            {filteredNews.length === 1
-              ? '1 noticia encontrada'
-              : `${filteredNews.length} noticias encontradas`}
-          </p>
 
           {visibleNews.length > 0 ? (
             <div className="news-events-page__cards">
@@ -229,6 +238,7 @@ function NewsEvents() {
             </p>
           )}
 
+          {/* Paginación del listado de noticias. */}
           <nav
             className="news-events-page__pagination"
             aria-label="Paginación"

@@ -1,0 +1,46 @@
+@use '../../styles/abstracts/mixins' as *;
+
+/* Capa de revelado del footer en la landing. */
+.home-page {
+  position: relative;
+
+  background-color: var(--color-primary);
+
+  > .reveal {
+    position: relative;
+    z-index: 1;
+
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  @include tablet {
+    --footer-reveal-height: 26rem;
+
+    padding-bottom: var(--footer-reveal-height);
+
+    > .hero {
+      position: relative;
+      z-index: 1;
+    }
+
+    > .header {
+      position: fixed;
+      z-index: 1000;
+    }
+
+    > .footer--reveal {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 0;
+    }
+  }
+
+  @include desktop-xl {
+    --footer-reveal-height: 30rem;
+  }
+}

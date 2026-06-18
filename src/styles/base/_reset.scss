@@ -1,3 +1,6 @@
+@use '../abstracts/mixins' as *;
+
+/* Reset básico para partir de una base visual consistente. */
 *,
 *::before,
 *::after {
@@ -24,6 +27,7 @@ body {
 
 }
 
+/* Imágenes y SVGs nunca desbordan su contenedor. */
 img,
 picture,
 svg {
@@ -36,6 +40,7 @@ a {
   text-decoration: none;
 }
 
+/* Controles de formulario heredan la tipografía del sitio. */
 button,
 input,
 textarea,
@@ -54,7 +59,8 @@ ol {
   list-style: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
+/* Reduce animaciones cuando el usuario lo solicita en el sistema. */
+@include reduce-motion {
   html {
     scroll-behavior: auto;
   }

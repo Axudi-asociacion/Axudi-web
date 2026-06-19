@@ -55,6 +55,36 @@
     background-color: var(--color-white);
   }
 
+  &__empty {
+    width: min(100% - 2rem, 42rem);
+    margin-inline: auto;
+    padding: var(--space-md);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+
+    background-color: var(--color-white);
+    color: var(--color-primary);
+
+    text-align: center;
+
+    img {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    p {
+      margin: 0;
+
+      font-family: var(--font-accent);
+      font-size: 1.7rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+  }
+
   &__button {
     width: fit-content;
     margin-top: var(--space-md);
@@ -66,7 +96,8 @@
   /* breakpoint --- MOBILE */
 
   @include mobile {
-    &__list {
+    &__list,
+    &__empty {
       width: min(100% - 4rem, 42rem);
     }
   }
@@ -90,9 +121,16 @@
       text-align: right;
     }
 
-    &__list {
+    &__list,
+    &__empty {
       width: min(100%, 64rem);
       padding: var(--space-md);
+    }
+
+    &__empty {
+      p {
+        font-size: 2rem;
+      }
     }
 
     &__button {
@@ -103,7 +141,8 @@
   /* breakpoint --- LAPTOP */
 
   @include laptop {
-    &__list {
+    &__list,
+    &__empty {
       width: min(100%, 68rem);
     }
   }
@@ -111,7 +150,8 @@
   /* breakpoint --- DESKTOP */
 
   @include desktop {
-    &__list {
+    &__list,
+    &__empty {
       width: min(100%, 70rem);
     }
   }
@@ -124,7 +164,8 @@
       text-align: center;
     }
 
-    &__list {
+    &__list,
+    &__empty {
       width: min(100%, 76rem);
     }
   }
@@ -137,7 +178,8 @@
       text-align: center;
     }
 
-    &__list {
+    &__list,
+    &__empty {
       width: min(100%, 105rem);
       padding: var(--space-lg);
     }

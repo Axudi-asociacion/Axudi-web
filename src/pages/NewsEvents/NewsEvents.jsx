@@ -8,6 +8,8 @@ import TypewriterText from '../../components/TypewriterText/TypewriterText';
 
 import newsItems from '../../data/newsItems';
 
+import smileIcon from '../../assets/icons/i-smile.svg';
+
 import './NewsEvents.scss';
 
 const ITEMS_PER_PAGE = 6;
@@ -233,42 +235,56 @@ function NewsEvents() {
 
             </div>
           ) : (
-            <p className="news-events-page__empty">
-              No hemos encontrado noticias con esos filtros.
-            </p>
+            <div className="news-events-page__empty" aria-live="polite">
+              <img
+                src={smileIcon}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+              />
+
+              <p>
+                {newsItems.length === 0
+                  ? 'Próximamente tendréis noticias nuestras.'
+                  : 'No hemos encontrado noticias con esos filtros.'}
+              </p>
+            </div>
           )}
 
           {/* Paginación del listado de noticias. */}
-          <nav
-            className="news-events-page__pagination"
-            aria-label="Paginación"
-          >
-
-            <button
-              type="button"
-              className="news-events-page__page-button"
-              disabled={currentPage === 1}
-              onClick={() => setCurrentPage(currentPage - 1)}
-              aria-label="Ir a la página anterior"
+          {visibleNews.length > 0 && (
+            <nav
+              className="news-events-page__pagination"
+              aria-label="Paginación"
             >
-              ←
-            </button>
 
-            <span className="news-events-page__page-info">
-              Página {currentPage} de {totalPages}
-            </span>
+              <button
+                type="button"
+                className="news-events-page__page-button"
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage(currentPage - 1)}
+                aria-label="Ir a la página anterior"
+              >
+                ←
+              </button>
 
-            <button
-              type="button"
-              className="news-events-page__page-button"
-              disabled={currentPage === totalPages || totalPages <= 1}
-              onClick={() => setCurrentPage(currentPage + 1)}
-              aria-label="Ir a la página siguiente"
-            >
-              →
-            </button>
+              <span className="news-events-page__page-info">
+                Página {currentPage} de {totalPages}
+              </span>
 
-          </nav>
+              <button
+                type="button"
+                className="news-events-page__page-button"
+                disabled={currentPage === totalPages || totalPages <= 1}
+                onClick={() => setCurrentPage(currentPage + 1)}
+                aria-label="Ir a la página siguiente"
+              >
+                →
+              </button>
+
+            </nav>
+          )}
 
         </Section>
       </main>

@@ -154,14 +154,14 @@
 
     background: transparent;
     border: 0;
-    color: var(--color-primary);
-
-    font-family: var(--font-secondary);
-    font-size: var(--text-xl);
-    font-weight: 800;
-    line-height: 1;
-
     cursor: pointer;
+
+    img {
+      width: 3.5rem;
+      height: 3.5rem;
+
+      display: block;
+    }
 
     &:focus-visible {
       outline: 3px solid var(--color-primary);

@@ -5,6 +5,7 @@ import Section from '../Section/Section';
 
 import newsItems from '../../data/newsItems';
 
+import smileIcon from '../../assets/icons/i-smile.svg';
 import starBlueIcon from '../../assets/icons/i-starblue.svg';
 
 import './LatestNews.scss';
@@ -22,18 +23,33 @@ function LatestNews() {
         Últimas noticias
       </h2>
 
-      {/* Listado reducido de noticias destacadas. */}
-      <div className="latest-news__list">
-        {latestNews.map((news) => (
-          <NewsCard
-            key={news.id}
-            title={news.title}
-            excerpt={news.excerpt}
-            image={news.image}
-            alt={news.alt}
+      {latestNews.length > 0 ? (
+        /* Listado reducido de noticias destacadas. */
+        <div className="latest-news__list">
+          {latestNews.map((news) => (
+            <NewsCard
+              key={news.id}
+              title={news.title}
+              excerpt={news.excerpt}
+              image={news.image}
+              alt={news.alt}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="latest-news__empty" aria-live="polite">
+          <img
+            src={smileIcon}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
-        ))}
-      </div>
+          <p>
+            Próximamente tendréis noticias nuestras.
+          </p>
+        </div>
+      )}
 
   {/* Enlace al archivo completo de noticias y eventos. */}
   <Link

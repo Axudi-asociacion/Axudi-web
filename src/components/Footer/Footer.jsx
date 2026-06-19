@@ -69,33 +69,33 @@ function Footer({ reveal = false }) {
             <ul className="footer__list">
 
               <li>
-                <a href="/">
+                <Link to="/#inicio">
                   Inicio
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a href="#que-hacemos">
+                <Link to="/#que-hacemos">
                   Qué hacemos
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a href="#asociate">
+                <Link to="/#asociate">
                   Asóciate
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a href="/noticias-y-eventos">
+                <Link to="/noticias-y-eventos">
                   Noticias y eventos
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a href="#contacto">
+                <Link to="/#contacto">
                   Contacto
-                </a>
+                </Link>
               </li>
 
             </ul>

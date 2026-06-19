@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Section from '../Section/Section';
 import './Contact.scss';
@@ -159,6 +160,22 @@ function Contact() {
           />
 
         </div>
+
+        <label className="contact__privacy">
+          <input
+            type="checkbox"
+            name="privacy"
+            required
+          />
+
+          <span>
+            He leído y acepto la{' '}
+            <Link to="/privacidad">
+              política de privacidad
+            </Link>
+            .
+          </span>
+        </label>
 
         <button
           type="submit"

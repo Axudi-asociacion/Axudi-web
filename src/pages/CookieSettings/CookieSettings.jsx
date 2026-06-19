@@ -17,7 +17,15 @@ function CookieSettings() {
           </h1>
 
           <p>
-            Desde aquí el usuario podrá modificar sus preferencias de cookies.
+            Actualmente esta web no utiliza cookies analíticas ni publicitarias
+            propias, por lo que no es necesario configurar preferencias
+            adicionales.
+          </p>
+
+          <p>
+            Si en el futuro AXUDI incorpora herramientas de analítica, publicidad
+            o seguimiento, esta página permitirá revisar y modificar las
+            preferencias de consentimiento.
           </p>
 
         </Section>

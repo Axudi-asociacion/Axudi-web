@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 import menuIcon from '../../assets/icons/i-hamburgerwhite.svg';
+import closeIcon from '../../assets/icons/i-cross.svg';
 import starIconBlue from '../../assets/icons/i-starblue.svg';
 import logo from '../../assets/logos/logoAxudi-navbarwhite.svg';
 import message from '../../assets/icons/i-messagewhite.svg';
@@ -119,7 +120,7 @@ function Header() {
             aria-label="Cerrar menú"
             onClick={closeMenu}
           >
-            ×
+            <img src={closeIcon} alt="" aria-hidden="true" />
           </button>
 
           <ul className="header__nav-list">

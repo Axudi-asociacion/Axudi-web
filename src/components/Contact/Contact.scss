@@ -1,9 +1,6 @@
 @use '../../styles/abstracts/mixins' as *;
 
-/* ================================
-   CONTACT
-   Mobile first
-================================ */
+/* CONTACT - Mobile first */
 
 .contact {
   position: relative;
@@ -124,6 +121,40 @@
     resize: vertical;
   }
 
+  &__privacy {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.55rem;
+    align-items: start;
+
+    color: var(--color-black);
+
+    font-family: var(--font-secondary);
+    font-size: var(--text-xs);
+    line-height: 1.35;
+
+    input {
+      width: 1rem;
+      height: 1rem;
+      margin-top: 0.12rem;
+
+      accent-color: var(--color-primary);
+    }
+
+    a {
+      color: var(--color-primary);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 0.18rem;
+
+      &:focus-visible {
+        outline: 3px solid var(--color-primary);
+        outline-offset: 3px;
+        border-radius: var(--radius-sm);
+      }
+    }
+  }
+
   &__button {
     width: min(100%, 14rem);
     margin-top: var(--space-sm);
@@ -223,7 +254,7 @@
     }
 
     &__mountain {
-      bottom: -15rem;
+      bottom: -12rem;
     }
   }
 
@@ -239,7 +270,7 @@
     }
 
     &__mountain {
-      bottom: -17rem;
+      bottom: -13rem;
     }
   }
 
@@ -255,7 +286,7 @@
     }
 
     &__mountain {
-      bottom: -18rem;
+      bottom: -14rem;
     }
   }
 
@@ -263,7 +294,7 @@
 
   @include desktop-lg {
     &__mountain {
-      bottom: -20rem;
+      bottom: -17rem;
     }
   }
 
@@ -285,7 +316,7 @@
     }
 
     &__mountain {
-      bottom: -28rem;
+      bottom: -23rem;
     }
   }
 

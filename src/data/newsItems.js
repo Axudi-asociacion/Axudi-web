@@ -1,3 +1,5 @@
+import placeholderImage from '../assets/logos/logoAxudi-placeholder.svg';
+
 // Carga todos los archivos Markdown de noticias como texto en tiempo de build.
 const newsFiles = import.meta.glob('../content/news/*.md', {
   eager: true,
@@ -69,6 +71,8 @@ const newsItems = Object.entries(newsFiles)
   .map(([path, rawContent]) => {
     const { data, body } = parseFrontmatter(rawContent);
     const filename = path.split('/').pop().replace('.md', '');
+    const image = data.image || placeholderImage;
+    const alt = data.alt || 'Imagen relacionada con AXUDI';
 
     return {
       id: data.id || filename,
@@ -76,8 +80,9 @@ const newsItems = Object.entries(newsFiles)
       excerpt: data.excerpt || '',
       body: markdownToText(body),
       content: body,
-      image: data.image || '',
-      alt: data.alt || '',
+      // Si el CMS no recibe imagen o alt, la tarjeta mantiene una salida estable.
+      image,
+      alt,
       category: data.category || 'Asociación',
       date: data.date || '',
       draft: data.draft === true,

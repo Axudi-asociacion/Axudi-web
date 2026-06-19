@@ -11,27 +11,37 @@ import cross from '../../assets/icons/i-cross.svg';
 import arrow from '../../assets/icons/i-arrowblue.svg';
 import mountain from '../../assets/icons/i-mountain.png';
 
+const CONTACT_FORM_NAME = 'contacto-axudi';
+
 function Contact() {
   const [submitStatus, setSubmitStatus] = useState('idle');
   const isSending = submitStatus === 'sending';
   const isSent = submitStatus === 'sent';
   const hasError = submitStatus === 'error';
 
-  // Simula el envío hasta conectar el formulario con Netlify Forms.
+  // Envía el formulario a Netlify Forms manteniendo el feedback visual propio.
   async function handleSubmit(event) {
     event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
     setSubmitStatus('sending');
 
     try {
-      await new Promise((resolve) => {
-        window.setTimeout(resolve, 1400);
+      formData.set('form-name', CONTACT_FORM_NAME);
+      formData.set('privacy', formData.get('privacy') ? 'Aceptada' : '');
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
       });
 
-      if (!window.navigator.onLine) {
-        throw new Error('No hay conexión');
+      if (!response.ok) {
+        throw new Error('No se pudo enviar el formulario');
       }
 
-      event.currentTarget.reset();
+      form.reset();
       setSubmitStatus('sent');
     } catch {
       setSubmitStatus('error');
@@ -97,10 +107,25 @@ function Contact() {
 
       {/* Formulario visual de contacto. */}
       <form
+        name={CONTACT_FORM_NAME}
+        method="POST"
+        data-netlify="true"
         className="contact__form"
         aria-label="Formulario de contacto"
         onSubmit={handleSubmit}
       >
+
+        <input
+          type="hidden"
+          name="form-name"
+          value={CONTACT_FORM_NAME}
+        />
+
+        <input
+          type="hidden"
+          name="subject"
+          value="Nuevo mensaje desde la web de AXUDI"
+        />
 
         <div className="contact__field">
 

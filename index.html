@@ -52,6 +52,21 @@
   </head>
 
   <body>
+    <!-- Netlify detecta este formulario estático y React envía los mismos campos por AJAX. -->
+    <form
+      name="contacto-axudi"
+      method="POST"
+      data-netlify="true"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="contacto-axudi" />
+      <input type="hidden" name="subject" value="Nuevo mensaje desde la web de AXUDI" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+      <input type="checkbox" name="privacy" />
+    </form>
+
     <div id="root"></div>
 
     <script type="module" src="/src/main.jsx"></script>

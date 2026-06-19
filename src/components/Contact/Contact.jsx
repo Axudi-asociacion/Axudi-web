@@ -6,7 +6,7 @@ import './Contact.scss';
 
 
 import message from '../../assets/icons/i-messagewhite.svg';
-import smile from '../../assets/icons/i-smile.svg';
+import smileWhite from '../../assets/icons/i-smilewhite.svg';
 import cross from '../../assets/icons/i-cross.svg';
 import arrow from '../../assets/icons/i-arrowblue.svg';
 import mountain from '../../assets/icons/i-mountain.png';
@@ -18,6 +18,10 @@ function Contact() {
   const isSending = submitStatus === 'sending';
   const isSent = submitStatus === 'sent';
   const hasError = submitStatus === 'error';
+
+  function resetSubmitStatus() {
+    setSubmitStatus('idle');
+  }
 
   // Envía el formulario a Netlify Forms manteniendo el feedback visual propio.
   async function handleSubmit(event) {
@@ -75,7 +79,7 @@ function Contact() {
 
   function getSubmitIcon() {
     if (isSent) {
-      return smile;
+      return smileWhite;
     }
 
     if (hasError) {
@@ -238,6 +242,25 @@ function Contact() {
             </span>
 
             Reintentar
+          </button>
+        )}
+
+        {isSent && (
+          <button
+            type="button"
+            className="button button--secondary contact__reset-button"
+            onClick={resetSubmitStatus}
+          >
+            <span className="button__icon">
+              <img
+                src={arrow}
+                alt=""
+                aria-hidden="true"
+                decoding="async"
+              />
+            </span>
+
+            Enviar otro
           </button>
         )}
 

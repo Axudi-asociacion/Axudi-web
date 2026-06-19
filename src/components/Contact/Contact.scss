@@ -198,7 +198,8 @@
     }
   }
 
-  &__retry-button {
+  &__retry-button,
+  &__reset-button {
     width: min(100%, 14rem);
 
     align-self: center;

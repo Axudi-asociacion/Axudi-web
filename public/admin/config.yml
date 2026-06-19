@@ -1,6 +1,7 @@
-# Conecta Sveltia CMS con Netlify Identity + Git Gateway.
+# Conecta Sveltia CMS directamente con el repositorio de GitHub.
 backend:
-  name: git-gateway
+  name: github
+  repo: Axudi-asociacion/Axudi-web
   branch: main
 
 # Permite probar el CMS en local con servidor compatible.

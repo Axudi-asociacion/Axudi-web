@@ -48,9 +48,11 @@ collections:
       - label: Imagen destacada
         name: image
         widget: image
+        required: false
       - label: Texto alternativo de la imagen
         name: alt
         widget: string
+        required: false
       - label: Resumen
         name: excerpt
         widget: text

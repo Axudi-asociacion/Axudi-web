@@ -1,9 +1,6 @@
 @use '../../styles/abstracts/mixins' as *;
 
-/* ================================
-   NEWS CARD
-   Mobile first
-================================ */
+/* NEWS CARD - Mobile first */
 
 .news-card {
   &:not(:last-child) {
@@ -77,9 +74,7 @@
   }
 }
 
-/* ================================
-   TABLET / DESKTOP
-================================ */
+/* TABLET / DESKTOP */
 
 @include tablet {
   .news-card {

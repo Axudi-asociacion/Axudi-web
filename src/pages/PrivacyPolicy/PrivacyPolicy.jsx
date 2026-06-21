@@ -23,8 +23,9 @@ function PrivacyPolicy() {
           <p>
             El responsable del tratamiento de los datos personales recogidos a
             través de esta web es AXUDI - Asociación Xuvenil de Diabetes, con NIF
-            [PENDIENTE], domicilio social en [PENDIENTE] y correo electrónico de
-            contacto [PENDIENTE].
+            G26923169, domicilio fiscal en C/ Fernando Alonso, nº 21, Oviedo,
+            Principado de Asturias, CP 33009, y correo electrónico de contacto
+            axudi.info@gmail.com.
           </p>
 
           <h2>
@@ -121,8 +122,8 @@ function PrivacyPolicy() {
           <p>
             Cualquier persona puede ejercer sus derechos de acceso, rectificación,
             supresión, oposición, limitación del tratamiento y portabilidad
-            escribiendo a [PENDIENTE], indicando claramente el derecho que desea
-            ejercer.
+            escribiendo a axudi.info@gmail.com, indicando claramente el derecho
+            que desea ejercer.
           </p>
 
           <p>

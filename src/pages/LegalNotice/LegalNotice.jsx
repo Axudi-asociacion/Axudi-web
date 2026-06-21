@@ -24,13 +24,15 @@ function LegalNotice() {
             En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la
             Sociedad de la Información y de Comercio Electrónico, se informa de
             que esta web es titularidad de AXUDI - Asociación Xuvenil de Diabetes,
-            con NIF [PENDIENTE], domicilio social en [PENDIENTE] e inscrita en
-            [PENDIENTE], con número de registro [PENDIENTE].
+            con NIF G26923169, domicilio fiscal en C/ Fernando Alonso, nº 21,
+            Oviedo, Principado de Asturias, CP 33009, e inscrita en el Registro
+            de Asociaciones del Principado de Asturias, con número de registro
+            2094.
           </p>
 
           <p>
             Puedes contactar con AXUDI a través del correo electrónico
-            [PENDIENTE].
+            axudi.info@gmail.com.
           </p>
 
           <h2>

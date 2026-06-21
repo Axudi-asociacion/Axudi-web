@@ -16,6 +16,19 @@ This project was designed and developed from the ground up with a strong focus o
 
 ---
 
+## Development Focus
+
+This project was developed with special attention to:
+
+- Accessibility and inclusive design
+- Mobile-first responsive development
+- SEO best practices
+- Component reusability
+- Maintainable SCSS architecture
+- Performance and user experience
+
+---
+
 ## Key Features
 
 ### User Experience & Interface Design
